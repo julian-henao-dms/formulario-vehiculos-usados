@@ -1,0 +1,741 @@
+<mat-card class="main-card-vh-u">
+  <div class="subtitle-container">
+    <mat-icon>badge </mat-icon>
+    <h2 class="subtitle-hv">Datos Vehículo</h2>
+  </div>
+  <mat-grid-list #grid [cols]="cols" rowHeight="85px" gutterSize="10px">
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <mat-label>Consignación</mat-label>
+        <input class="" matInput placeholder="Consignación" />
+
+
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <mat-label>Placa</mat-label>
+        <input class="" matInput placeholder="Placa" />
+
+
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <mat-label>Interno </mat-label>
+        <input class="" matInput placeholder="Interno" />
+
+
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <mat-label>Asesor</mat-label>
+        <input class="" matInput placeholder="Identidicación" />
+
+
+      </mat-form-field>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+  <mat-grid-list #grid [cols]="cols" rowHeight="85px" gutterSize="10px">
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <mat-label>Sala</mat-label>
+        <input class="" matInput placeholder="Sala" />
+
+
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <mat-label>Fecha </mat-label>
+        <input matInput [matDatepicker]="expedicion"
+        required id="fechaVh"/>
+        <mat-hint>DD/MM/AAAA</mat-hint>
+        <mat-error class="message-error">
+          *La fecha de expedición es requerida.
+        </mat-error>
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="expedicion"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #expedicion></mat-datepicker>
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <mat-label>Hora</mat-label>
+        <input class="" matInput  type="time"/>
+
+
+      </mat-form-field>
+    </mat-grid-tile>
+
+
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <mat-label>Marca</mat-label>
+        <input class="" matInput placeholder="Marca" />
+
+
+      </mat-form-field>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-grid-list #grid [cols]="cols" rowHeight="85px" gutterSize="10px">
+
+
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <mat-label>Referencia</mat-label>
+        <input class="" matInput placeholder="Referencia" />
+
+
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <mat-label>Modelo</mat-label>
+        <input class="" matInput placeholder="Modelo" />
+
+
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+           <fieldset>
+            <div class="container-hv-radios">
+              <mat-label>Combustible:</mat-label>
+              <mat-radio-group aria-label="Select an option"  name="combustible"
+              required id="combustible" color="primary">
+                <mat-radio-button [value]="0">Gasolina</mat-radio-button>
+                <mat-radio-button [value]="1">Diesel</mat-radio-button>
+
+              </mat-radio-group>
+
+            </div>
+    </fieldset>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <mat-label>Kilometraje</mat-label>
+        <input class="" matInput placeholder="Kilometraje" />
+      </mat-form-field>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+  <mat-grid-list #grid [cols]="cols" rowHeight="85px" gutterSize="10px">
+
+    <mat-grid-tile>
+    <fieldset>
+      <div class="container-hv-radios">
+        <mat-label>Transmisión:</mat-label>
+        <mat-radio-group aria-label="Select an option"  name="transmision"
+        required id="transmision" color="primary">
+          <mat-radio-button [value]="0">Auto</mat-radio-button>
+          <mat-radio-button [value]="1">Mec</mat-radio-button>
+
+        </mat-radio-group>
+
+      </div>
+</fieldset>
+</mat-grid-tile >
+
+<mat-grid-tile>
+  <mat-form-field appearance="outline">
+    <mat-label>Color</mat-label>
+    <input class="" matInput placeholder="Color" />
+  </mat-form-field>
+</mat-grid-tile>
+
+<mat-grid-tile>
+  <mat-form-field appearance="outline">
+    <mat-label>Cilindraje</mat-label>
+    <input class="" matInput placeholder="Cilindraje" />
+  </mat-form-field>
+</mat-grid-tile>
+
+<mat-grid-tile>
+  <fieldset>
+   <div class="container-hv-radios">
+     <mat-label>Tracción:</mat-label>
+     <mat-radio-group aria-label="Select an option"  name="traccion"
+     required id="traccion" color="primary">
+       <mat-radio-button [value]="0">4x2</mat-radio-button>
+       <mat-radio-button [value]="1">4x4</mat-radio-button>
+
+     </mat-radio-group>
+
+   </div>
+</fieldset>
+</mat-grid-tile>
+
+
+  </mat-grid-list>
+
+  <mat-grid-list #grid [cols]="cols" rowHeight="85px" gutterSize="10px">
+
+    <mat-grid-tile>
+      <fieldset>
+        <div class="container-hv-radios">
+          <mat-label>Cojineria:</mat-label>
+          <mat-radio-group aria-label="Select an option"  name="cojineria"
+          required id="cojineria" color="primary">
+            <mat-radio-button [value]="0">Tela</mat-radio-button>
+            <mat-radio-button [value]="1">Cuero</mat-radio-button>
+
+          </mat-radio-group>
+
+        </div>
+     </fieldset>
+   </mat-grid-tile>
+
+    <mat-grid-tile>
+      <fieldset>
+        <div class="container-hv-radios">
+          <mat-label>Línea:</mat-label>
+          <mat-radio-group aria-label="Select an option"  name="linea"
+          required id="linea" color="primary">
+            <mat-radio-button [value]="0">NB</mat-radio-button>
+            <mat-radio-button [value]="1">HB</mat-radio-button>
+            <mat-radio-button [value]="2">QP</mat-radio-button>
+
+          </mat-radio-group>
+
+        </div>
+     </fieldset>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+</mat-card>
+
+<mat-card class="main-card-vh-u card-canvas">
+  <app-vehicle-state-field class="canvasContainer"></app-vehicle-state-field>
+</mat-card>
+
+
+  <mat-card class="main-card-vh-u">
+    <div class="title-cb-card">
+
+      <h2 class="titulo-p-llanta">LLantas</h2>
+  </div>
+    <mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="label">
+        <mat-header-cell *matHeaderCellDef> Etiqueta </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.label}} </mat-cell>
+      </ng-container>
+
+
+      <ng-container matColumnDef="vida_llanta">
+        <mat-header-cell *matHeaderCellDef> Vida de la llanta </mat-header-cell>
+        <mat-cell *matCellDef="let element; let i = index">
+          <mat-form-field class="matFieldTable" appearance="outline">
+            <input matInput type="text" [(ngModel)]="inputValues[i].delIzq" *ngIf="i === 0" />
+            <input matInput type="text" [(ngModel)]="inputValues[i].delDer" *ngIf="i === 1" />
+            <input matInput type="text" [(ngModel)]="inputValues[i].trasIzq" *ngIf="i === 2" />
+            <input matInput type="text" [(ngModel)]="inputValues[i].trasDer" *ngIf="i === 3" />
+            <input matInput type="text" [(ngModel)]="inputValues[i].repuesto" *ngIf="i === 4" />
+          </mat-form-field>
+        </mat-cell>
+      </ng-container>
+
+
+      <ng-container matColumnDef="marca">
+        <mat-header-cell *matHeaderCellDef> Marca </mat-header-cell>
+        <mat-cell *matCellDef="let element; let i = index">
+          <mat-form-field class="matFieldTable" appearance="outline">
+            <input matInput type="text" [(ngModel)]="inputValues[i].marca_di" *ngIf="i === 0" />
+            <input matInput type="text" [(ngModel)]="inputValues[i].marca_dd" *ngIf="i === 1" />
+            <input matInput type="text" [(ngModel)]="inputValues[i].marca_ti" *ngIf="i === 2" />
+            <input matInput type="text" [(ngModel)]="inputValues[i].marca_td" *ngIf="i === 3" />
+            <input matInput type="text" [(ngModel)]="inputValues[i].marca_rep" *ngIf="i === 4" />
+          </mat-form-field>
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </mat-card>
+
+  <mat-card class="main-card-vh-u">
+    <div class="title-cb-card">
+
+      <h2 class="titulo-p-llanta">Rines</h2>
+  </div>
+    <mat-table [dataSource]="dataSourceRines">
+      <ng-container matColumnDef="labelRin">
+        <mat-header-cell *matHeaderCellDef> Etiqueta </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.labelRin}} </mat-cell>
+      </ng-container>
+
+
+      <ng-container matColumnDef="rin">
+        <mat-header-cell *matHeaderCellDef> Rin </mat-header-cell>
+        <mat-cell *matCellDef="let element; let i = index">
+          <mat-form-field class="matFieldTable" appearance="outline">
+            <input matInput type="text" [(ngModel)]="inputValuesRines[i].rinDelIzq" *ngIf="i === 0" />
+            <input matInput type="text" [(ngModel)]="inputValuesRines[i].rinDelDer" *ngIf="i === 1" />
+            <input matInput type="text" [(ngModel)]="inputValuesRines[i].rinTrasIzq" *ngIf="i === 2" />
+            <input matInput type="text" [(ngModel)]="inputValuesRines[i].rinTrasDer" *ngIf="i === 3" />
+            <input matInput type="text" [(ngModel)]="inputValuesRines[i].rinRepuesto" *ngIf="i === 4" />
+          </mat-form-field>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="tapa">
+        <mat-header-cell *matHeaderCellDef> Tapa </mat-header-cell>
+        <mat-cell *matCellDef="let element; let i = index">
+          <mat-form-field class="matFieldTable" appearance="outline">
+            <input matInput type="text" [(ngModel)]="inputValuesRines[i].tapaDelIzq" *ngIf="i === 0" />
+            <input matInput type="text" [(ngModel)]="inputValuesRines[i].tapaDelDer" *ngIf="i === 1" />
+            <input matInput type="text" [(ngModel)]="inputValuesRines[i].tapaTrasIzq" *ngIf="i === 2" />
+            <input matInput type="text" [(ngModel)]="inputValuesRines[i].tapaTrasDer" *ngIf="i === 3" />
+            <input matInput type="text" [(ngModel)]="inputValuesRines[i].tapaRep" *ngIf="i === 4" />
+          </mat-form-field>
+        </mat-cell>
+      </ng-container>
+
+
+      <ng-container matColumnDef="marcaRin">
+        <mat-header-cell *matHeaderCellDef> Marca </mat-header-cell>
+        <mat-cell *matCellDef="let element; let i = index">
+          <mat-form-field class="matFieldTable" appearance="outline">
+            <input matInput type="text" [(ngModel)]="inputValuesRines[i].marca_di_rin" *ngIf="i === 0" />
+            <input matInput type="text" [(ngModel)]="inputValuesRines[i].marca_dd_rin" *ngIf="i === 1" />
+            <input matInput type="text" [(ngModel)]="inputValuesRines[i].marca_ti_rin" *ngIf="i === 2" />
+            <input matInput type="text" [(ngModel)]="inputValuesRines[i].marca_td_rin" *ngIf="i === 3" />
+            <input matInput type="text" [(ngModel)]="inputValuesRines[i].marca_rep_rin" *ngIf="i === 4" />
+          </mat-form-field>
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumnsRines"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumnsRines;"></mat-row>
+    </mat-table>
+  </mat-card>
+
+  <mat-card class="main-card-vh-u">
+    <div class="subtitle-container">
+      <mat-icon>badge </mat-icon>
+      <h2 class="subtitle-hv">Documentos</h2>
+    </div>
+  <mat-grid-list #grid [cols]="colsAlt" rowHeight="85px" gutterSize="10px">
+    <mat-grid-tile>
+      <fieldset>
+        <div class="container-hv-radios">
+          <mat-label>Matrícula:</mat-label>
+          <mat-radio-group aria-label="Select an option"  name="matricula"
+          required id="matricula" color="primary">
+            <mat-radio-button [value]="1">Si</mat-radio-button>
+            <mat-radio-button [value]="0">No</mat-radio-button>
+
+          </mat-radio-group>
+
+        </div>
+      </fieldset>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <fieldset>
+        <div class="container-hv-radios">
+          <mat-label>SOAT:</mat-label>
+          <mat-radio-group aria-label="Select an option"  name="soat"
+          required id="soat" color="primary">
+            <mat-radio-button [value]="1">Si</mat-radio-button>
+            <mat-radio-button [value]="0">No</mat-radio-button>
+
+          </mat-radio-group>
+
+        </div>
+      </fieldset>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <fieldset>
+        <div class="container-hv-radios">
+          <mat-label>RTM:</mat-label>
+          <mat-radio-group aria-label="Select an option"  name="rtm"
+          required id="rtm" color="primary">
+            <mat-radio-button [value]="1">Si</mat-radio-button>
+            <mat-radio-button [value]="0">No</mat-radio-button>
+
+          </mat-radio-group>
+
+        </div>
+      </fieldset>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>Observaciones</mat-label>
+    <textarea matInput placeholder="Observaciones"></textarea>
+  </mat-form-field>
+  </mat-card>
+
+
+  <mat-card class="main-card-vh-u">
+    <div class="subtitle-container">
+      <mat-icon>badge </mat-icon>
+      <h2 class="subtitle-hv">Documentos</h2>
+    </div>
+  <mat-grid-list #grid [cols]="colsAlt" rowHeight="85px" gutterSize="10px">
+    <mat-grid-tile>
+      <fieldset>
+        <div class="container-hv-radios">
+         <img  class="image_radios" src="/assets/images/llave.png" alt="">
+          <mat-radio-group aria-label="Select an option"  name="matricula"
+          required id="matricula" color="primary">
+            <mat-radio-button [value]="1">Si</mat-radio-button>
+            <mat-radio-button [value]="0">No</mat-radio-button>
+
+          </mat-radio-group>
+
+        </div>
+      </fieldset>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <fieldset>
+        <div class="container-hv-radios">
+          <img  class="image_radios" src="/assets/images/llaveRepuesto.png" alt="">
+          <mat-radio-group aria-label="Select an option"  name="soat"
+          required id="soat" color="primary">
+            <mat-radio-button [value]="1">Si</mat-radio-button>
+            <mat-radio-button [value]="0">No</mat-radio-button>
+
+          </mat-radio-group>
+
+        </div>
+      </fieldset>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <fieldset>
+        <div class="container-hv-radios">
+          <img  class="image_radios" src="/assets/images/manual.png" alt="">
+          <mat-radio-group aria-label="Select an option"  name="rtm"
+          required id="rtm" color="primary">
+            <mat-radio-button [value]="1">Si</mat-radio-button>
+            <mat-radio-button [value]="0">No</mat-radio-button>
+
+          </mat-radio-group>
+
+        </div>
+      </fieldset>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-grid-list #grid [cols]="colsAlt" rowHeight="85px" gutterSize="10px">
+    <mat-grid-tile>
+      <fieldset>
+        <div class="container-hv-radios">
+         <img  class="image_radios" src="/assets/images/encendedor.png" alt="">
+          <mat-radio-group aria-label="Select an option"  name="matricula"
+          required id="matricula" color="primary">
+            <mat-radio-button [value]="1">Si</mat-radio-button>
+            <mat-radio-button [value]="0">No</mat-radio-button>
+
+          </mat-radio-group>
+
+        </div>
+      </fieldset>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <fieldset>
+        <div class="container-hv-radios">
+          <img  class="image_radios" src="/assets/images/cruceta.png" alt="">
+          <mat-radio-group aria-label="Select an option"  name="soat"
+          required id="soat" color="primary">
+            <mat-radio-button [value]="1">Si</mat-radio-button>
+            <mat-radio-button [value]="0">No</mat-radio-button>
+
+          </mat-radio-group>
+
+        </div>
+      </fieldset>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <fieldset>
+        <div class="container-hv-radios">
+          <img  class="image_radios" src="/assets/images/llavepernos.png" alt="">
+          <mat-radio-group aria-label="Select an option"  name="rtm"
+          required id="rtm" color="primary">
+            <mat-radio-button [value]="1">Si</mat-radio-button>
+            <mat-radio-button [value]="0">No</mat-radio-button>
+
+          </mat-radio-group>
+
+        </div>
+      </fieldset>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-grid-list #grid [cols]="colsAlt" rowHeight="85px" gutterSize="10px">
+    <mat-grid-tile>
+      <fieldset>
+        <div class="container-hv-radios">
+         <img  class="image_radios" src="/assets/images/manivela.png" alt="">
+          <mat-radio-group aria-label="Select an option"  name="matricula"
+          required id="matricula" color="primary">
+            <mat-radio-button [value]="1">Si</mat-radio-button>
+            <mat-radio-button [value]="0">No</mat-radio-button>
+
+          </mat-radio-group>
+
+        </div>
+      </fieldset>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <fieldset>
+        <div class="container-hv-radios">
+          <img  class="image_radios" src="/assets/images/gato.png" alt="">
+          <mat-radio-group aria-label="Select an option"  name="soat"
+          required id="soat" color="primary">
+            <mat-radio-button [value]="1">Si</mat-radio-button>
+            <mat-radio-button [value]="0">No</mat-radio-button>
+
+          </mat-radio-group>
+
+        </div>
+      </fieldset>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <fieldset>
+        <div class="container-hv-radios">
+          <img  class="image_radios" src="/assets/images/herramientas.png" alt="">
+          <mat-radio-group aria-label="Select an option"  name="rtm"
+          required id="rtm" color="primary">
+            <mat-radio-button [value]="1">Si</mat-radio-button>
+            <mat-radio-button [value]="0">No</mat-radio-button>
+
+          </mat-radio-group>
+
+        </div>
+      </fieldset>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-grid-list #grid [cols]="colsAlt" rowHeight="85px" gutterSize="10px">
+    <mat-grid-tile>
+      <fieldset>
+        <div class="container-hv-radios">
+         <img  class="image_radios" src="/assets/images/antena.png" alt="">
+          <mat-radio-group aria-label="Select an option"  name="matricula"
+          required id="matricula" color="primary">
+            <mat-radio-button [value]="1">Si</mat-radio-button>
+            <mat-radio-button [value]="0">No</mat-radio-button>
+
+          </mat-radio-group>
+
+        </div>
+      </fieldset>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <fieldset>
+        <div class="container-hv-radios">
+          <img  class="image_radios" src="/assets/images/cubremaletero.png" alt="">
+          <mat-radio-group aria-label="Select an option"  name="soat"
+          required id="soat" color="primary">
+            <mat-radio-button [value]="1">Si</mat-radio-button>
+            <mat-radio-button [value]="0">No</mat-radio-button>
+
+          </mat-radio-group>
+
+        </div>
+      </fieldset>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <fieldset>
+        <div class="container-hv-radios">
+          <img  class="image_radios" src="/assets/images/gasolina.png" alt="">
+          <mat-radio-group aria-label="Select an option"  name="rtm"
+          required id="rtm" color="primary">
+            <mat-radio-button [value]="1">Si</mat-radio-button>
+            <mat-radio-button [value]="0">No</mat-radio-button>
+
+          </mat-radio-group>
+
+        </div>
+      </fieldset>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-grid-list #grid [cols]="colsAlt" rowHeight="85px" gutterSize="10px">
+    <mat-grid-tile>
+      <fieldset>
+        <div class="container-hv-radios">
+         <img  class="image_radios" src="/assets/images/bateria.png" alt="">
+          <mat-radio-group aria-label="Select an option"  name="matricula"
+          required id="matricula" color="primary">
+            <mat-radio-button [value]="1">Si</mat-radio-button>
+            <mat-radio-button [value]="0">No</mat-radio-button>
+
+          </mat-radio-group>
+
+        </div>
+      </fieldset>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <fieldset>
+        <div class="container-hv-radios">
+          <img  class="image_radios" src="/assets/images/radio.png" alt="">
+          <mat-radio-group aria-label="Select an option"  name="soat"
+          required id="soat" color="primary">
+            <mat-radio-button [value]="1">Si</mat-radio-button>
+            <mat-radio-button [value]="0">No</mat-radio-button>
+
+          </mat-radio-group>
+
+        </div>
+      </fieldset>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <!-- <fieldset>
+        <div class="container-hv-radios">
+          <img  class="image_radios" src="/assets/images/gasolina.png" alt="">
+          <mat-radio-group aria-label="Select an option"  name="rtm"
+          required id="rtm" color="primary">
+            <mat-radio-button [value]="1">Si</mat-radio-button>
+            <mat-radio-button [value]="0">No</mat-radio-button>
+
+          </mat-radio-group>
+
+        </div>
+      </fieldset> -->
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>Observaciones</mat-label>
+    <textarea matInput placeholder="Observaciones"></textarea>
+  </mat-form-field>
+  </mat-card>
+
+  <mat-card class="main-card-vh-u">
+  <mat-grid-list #grid [cols]="colsDouble" rowHeight="85px" gutterSize="10px">
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <mat-label>Nombre de quien deja el vehículo</mat-label>
+        <input class="" matInput placeholder="Nombre de quien deja el vehículo" />
+
+
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <mat-label>Fecha Entrada</mat-label>
+        <input matInput [matDatepicker]="fechaEntrada"
+        required id="fechaEntrada"/>
+        <mat-hint>DD/MM/AAAA</mat-hint>
+        <mat-error class="message-error">
+          *La fecha de expedición es requerida.
+        </mat-error>
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="fechaEntrada"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #fechaEntrada></mat-datepicker>
+      </mat-form-field>
+    </mat-grid-tile>
+    </mat-grid-list>
+
+  <mat-grid-list #grid [cols]="colsDouble" rowHeight="85px" gutterSize="10px">
+
+
+    <mat-grid-tile>
+      <div class="input-field col s12 l6 sign6column signature">
+        <label>Firma</label>
+        <app-signature-field #signature ></app-signature-field>
+      </div>
+
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <div class="input-field col s12 l6 sign6column signature">
+        <label>Firma</label>
+        <app-signature-field #signature ></app-signature-field>
+      </div>
+
+    </mat-grid-tile>
+    </mat-grid-list>
+
+    <mat-grid-list #grid [cols]="colsDouble" rowHeight="85px" gutterSize="10px">
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre de quien recibe el vehículo</mat-label>
+          <input class="" matInput placeholder="Nombre de quien recibe el vehículo" />
+
+
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Fecha Salida</mat-label>
+          <input matInput [matDatepicker]="fechaSalida"
+          required id="fechaSalida"/>
+          <mat-hint>DD/MM/AAAA</mat-hint>
+          <mat-error class="message-error">
+            *La fecha de expedición es requerida.
+          </mat-error>
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="fechaSalida"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #fechaSalida></mat-datepicker>
+        </mat-form-field>
+      </mat-grid-tile>
+      </mat-grid-list>
+
+    <mat-grid-list #grid [cols]="colsDouble" rowHeight="85px" gutterSize="10px">
+
+
+      <mat-grid-tile>
+        <div class="input-field col s12 l6 sign6column signature">
+          <label>Firma</label>
+          <app-signature-field #signature ></app-signature-field>
+        </div>
+
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <div class="input-field col s12 l6 sign6column signature">
+          <label>Firma</label>
+          <app-signature-field #signature ></app-signature-field>
+        </div>
+
+      </mat-grid-tile>
+      </mat-grid-list>
+  <!-- <mat-grid-list #grid [cols]="colsDouble" rowHeight="85px" gutterSize="10px">
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <mat-label>Nombre de quien deja el vehículo</mat-label>
+        <input class="" matInput placeholder="Nombre de quien deja el vehículo" />
+
+
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <mat-label>Fecha Entrada</mat-label>
+        <input matInput [matDatepicker]="fechaEntrada"
+        required id="fechaEntrada"/>
+        <mat-hint>DD/MM/AAAA</mat-hint>
+        <mat-error class="message-error">
+          *La fecha de expedición es requerida.
+        </mat-error>
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="fechaEntrada"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #fechaEntrada></mat-datepicker>
+      </mat-form-field>
+    </mat-grid-tile>
+    </mat-grid-list>-->
+
+    <div class="step-btn-container">
+      <button type="button" class="stepper-main-btn" mat-button (click)="sendForm()" >
+        Enviar Formulario
+      </button>
+
+
+    </div>
+    </mat-card>
+

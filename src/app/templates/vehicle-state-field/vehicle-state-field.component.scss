@@ -1,0 +1,44 @@
+.canvas{
+  border-right: 1px solid black;
+  position: relative;
+}
+h4 {
+  margin-bottom: 50px
+}
+
+button {
+  position:absolute;
+  right:5px;
+  top:5px;
+}
+
+mat-icon {
+  font-size:14px
+}
+
+.accionesCanvas{
+  // width: 100%;
+  // display: flex;
+  // justify-content: center;
+}
+.canvasContainer {
+  border: 1px groove gray;
+  margin: 10px;
+  display: inline-flex;
+}
+
+
+
+
+
+
+@media only screen and (max-width: 1170px) {
+  .accionesCanvas mat-list{
+    display:inline-flex;
+    flex-wrap:wrap;
+  }
+
+  .accionesCanvas mat-list-item {
+    flex: 25%;
+  }
+ }

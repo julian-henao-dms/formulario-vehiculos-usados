@@ -1,1 +1,71 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #f7f7f7; }
+
+
+mat-form-field{
+  width: 100%;
+}
+fieldset {
+  border-radius: 4px;
+  width: 100%;
+  height: 36px;
+  border: solid 0.1em #e0e0e0;
+  margin: -18px 0 0 0;
+}
+.container-hv-radios {
+  display: flex;
+  padding: 10px 0 0 0;
+  mat-label {
+    margin-bottom: 0.2em;
+    margin-right: 15px;
+    color: #666666;
+}
+}
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}
+.estado_vehiculo div.mat-grid-tile-content{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+button.stepper-main-btn {
+  background: #2675bb;
+  color: #fff;
+  margin-right: 0.5em;
+}
+
+
+@media screen and (min-width: 700px) {
+  .step-btn-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 1em;
+  }
+}
+
+  @media screen and (max-width: 700px) {
+  .step-btn-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+  }
+  .step-btn-container button {
+    width: 100%;
+  }
+}
+// mat-grid-tile.mat-grid-tile.left-grid-position {
+//   div.mat-grid-tile-content{
+//     // margin-left: 15px;
+//     display: flex;
+//     justify-content: flex-start;
+//     .example-section {
+//         margin-top: -20px;
+//   }
+//     // overflow: auto;
+//   }
+// }

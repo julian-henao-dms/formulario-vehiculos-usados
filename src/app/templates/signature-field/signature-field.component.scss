@@ -1,0 +1,22 @@
+canvas {
+   border: solid 0.1em rgba(0,0,0,.12);
+   border-radius: 4px;
+  width: 12em;
+   height: 3.85em;
+   }
+canvas:hover {
+   border: solid 2px rgba(0, 0, 0, 0.658);
+   }
+   :host {
+    position:relative;
+    margin-left:0px !important;
+    display:inline-flex;
+    align-items:center;
+   }
+   @media screen and (min-width: 700px) {
+    canvas {
+
+      width: 35em;
+
+      }
+  }
