@@ -1,22 +1,49 @@
-canvas {
-   border: solid 0.1em rgba(0,0,0,.12);
-   border-radius: 4px;
-  width: 12em;
-   height: 3.85em;
-   }
-canvas:hover {
-   border: solid 2px rgba(0, 0, 0, 0.658);
-   }
-   :host {
-    position:relative;
-    margin-left:0px !important;
-    display:inline-flex;
-    align-items:center;
-   }
-   @media screen and (min-width: 700px) {
-    canvas {
 
-      width: 35em;
 
-      }
-  }
+.container__signatureCanvas {
+  // background-color: #f7f7f7;
+  width: 100%;
+  height: auto;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.container__signatureCanvas canvas {
+  background-color: #fff;
+  outline: #CECECE 1px solid;
+  border-radius: 5px;
+}
+
+
+.clean__signatureCanvas {
+  width: 100%;
+  height: 60px;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.clean__signatureCanvas .clean__signatureCanvas-validate {
+  margin-right: 10px;
+}
+// canvas {
+//    border: solid 0.1em rgba(0,0,0,.12);
+//    border-radius: 4px;
+//   width: 12em;
+//    height: 3.85em;
+//    }
+// canvas:hover {
+//    border: solid 2px rgba(0, 0, 0, 0.658);
+//    }
+//    :host {
+//     position:relative;
+//     margin-left:0px !important;
+//     display:inline-flex;
+//     align-items:center;
+//    }
+//    @media screen and (min-width: 700px) {
+//     canvas {
+
+//       width: 35em;
+
+//       }
+//   }

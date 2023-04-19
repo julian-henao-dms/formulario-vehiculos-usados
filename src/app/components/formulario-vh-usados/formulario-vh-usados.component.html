@@ -14,12 +14,32 @@
     </mat-grid-tile>
     <mat-grid-tile>
       <mat-form-field appearance="outline">
+        <mat-label>Retoma</mat-label>
+        <input class="" matInput placeholder="Retoma" />
+
+
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <mat-label>Otros</mat-label>
+        <input class="" matInput placeholder="Otros" />
+
+
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
         <mat-label>Placa</mat-label>
         <input class="" matInput placeholder="Placa" />
 
 
       </mat-form-field>
     </mat-grid-tile>
+
+
+  </mat-grid-list>
+  <mat-grid-list #grid [cols]="cols" rowHeight="85px" gutterSize="10px">
     <mat-grid-tile>
       <mat-form-field appearance="outline">
         <mat-label>Interno </mat-label>
@@ -37,9 +57,6 @@
 
       </mat-form-field>
     </mat-grid-tile>
-
-  </mat-grid-list>
-  <mat-grid-list #grid [cols]="cols" rowHeight="85px" gutterSize="10px">
     <mat-grid-tile>
       <mat-form-field appearance="outline">
         <mat-label>Sala</mat-label>
@@ -66,6 +83,10 @@
       </mat-form-field>
     </mat-grid-tile>
 
+
+  </mat-grid-list>
+  <mat-grid-list #grid [cols]="cols" rowHeight="85px" gutterSize="10px">
+
     <mat-grid-tile>
       <mat-form-field appearance="outline">
         <mat-label>Hora</mat-label>
@@ -84,9 +105,6 @@
 
       </mat-form-field>
     </mat-grid-tile>
-  </mat-grid-list>
-  <mat-grid-list #grid [cols]="cols" rowHeight="85px" gutterSize="10px">
-
 
     <mat-grid-tile>
       <mat-form-field appearance="outline">
@@ -105,30 +123,31 @@
       </mat-form-field>
     </mat-grid-tile>
 
-    <mat-grid-tile>
-           <fieldset>
-            <div class="container-hv-radios">
-              <mat-label>Combustible:</mat-label>
-              <mat-radio-group aria-label="Select an option"  name="combustible"
-              required id="combustible" color="primary">
-                <mat-radio-button [value]="0">Gasolina</mat-radio-button>
-                <mat-radio-button [value]="1">Diesel</mat-radio-button>
-
-              </mat-radio-group>
-
-            </div>
-    </fieldset>
-    </mat-grid-tile>
-
-    <mat-grid-tile>
-      <mat-form-field appearance="outline">
-        <mat-label>Kilometraje</mat-label>
-        <input class="" matInput placeholder="Kilometraje" />
-      </mat-form-field>
-    </mat-grid-tile>
 
   </mat-grid-list>
   <mat-grid-list #grid [cols]="cols" rowHeight="85px" gutterSize="10px">
+    <mat-grid-tile>
+      <fieldset>
+       <div class="container-hv-radios">
+         <mat-label>Combustible:</mat-label>
+         <mat-radio-group aria-label="Select an option"  name="combustible"
+         required id="combustible" color="primary">
+           <mat-radio-button [value]="0">Gasolina</mat-radio-button>
+           <mat-radio-button [value]="1">Diesel</mat-radio-button>
+
+         </mat-radio-group>
+
+       </div>
+</fieldset>
+</mat-grid-tile>
+
+<mat-grid-tile>
+ <mat-form-field appearance="outline">
+   <mat-label>Kilometraje</mat-label>
+   <input class="" matInput placeholder="Kilometraje" />
+ </mat-form-field>
+</mat-grid-tile>
+
 
     <mat-grid-tile>
     <fieldset>
@@ -152,33 +171,33 @@
   </mat-form-field>
 </mat-grid-tile>
 
-<mat-grid-tile>
-  <mat-form-field appearance="outline">
-    <mat-label>Cilindraje</mat-label>
-    <input class="" matInput placeholder="Cilindraje" />
-  </mat-form-field>
-</mat-grid-tile>
 
-<mat-grid-tile>
-  <fieldset>
-   <div class="container-hv-radios">
-     <mat-label>Tracción:</mat-label>
-     <mat-radio-group aria-label="Select an option"  name="traccion"
-     required id="traccion" color="primary">
-       <mat-radio-button [value]="0">4x2</mat-radio-button>
-       <mat-radio-button [value]="1">4x4</mat-radio-button>
-
-     </mat-radio-group>
-
-   </div>
-</fieldset>
-</mat-grid-tile>
 
 
   </mat-grid-list>
 
   <mat-grid-list #grid [cols]="cols" rowHeight="85px" gutterSize="10px">
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <mat-label>Cilindraje</mat-label>
+        <input class="" matInput placeholder="Cilindraje" />
+      </mat-form-field>
+    </mat-grid-tile>
 
+    <mat-grid-tile>
+      <fieldset>
+       <div class="container-hv-radios">
+         <mat-label>Tracción:</mat-label>
+         <mat-radio-group aria-label="Select an option"  name="traccion"
+         required id="traccion" color="primary">
+           <mat-radio-button [value]="0">4x2</mat-radio-button>
+           <mat-radio-button [value]="1">4x4</mat-radio-button>
+
+         </mat-radio-group>
+
+       </div>
+    </fieldset>
+    </mat-grid-tile>
     <mat-grid-tile>
       <fieldset>
         <div class="container-hv-radios">
@@ -223,6 +242,7 @@
 
       <h2 class="titulo-p-llanta">LLantas</h2>
   </div>
+  <div class="">
     <mat-table [dataSource]="dataSource">
       <ng-container matColumnDef="label">
         <mat-header-cell *matHeaderCellDef> Etiqueta </mat-header-cell>
@@ -259,13 +279,16 @@
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
+  </div>
   </mat-card>
+
 
   <mat-card class="main-card-vh-u">
     <div class="title-cb-card">
 
       <h2 class="titulo-p-llanta">Rines</h2>
   </div>
+  <div class="">
     <mat-table [dataSource]="dataSourceRines">
       <ng-container matColumnDef="labelRin">
         <mat-header-cell *matHeaderCellDef> Etiqueta </mat-header-cell>
@@ -315,6 +338,7 @@
       <mat-header-row *matHeaderRowDef="displayedColumnsRines"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumnsRines;"></mat-row>
     </mat-table>
+  </div>
   </mat-card>
 
   <mat-card class="main-card-vh-u">
@@ -635,12 +659,12 @@
     </mat-grid-tile>
     </mat-grid-list>
 
-  <mat-grid-list #grid [cols]="colsDouble" rowHeight="85px" gutterSize="10px">
+  <mat-grid-list #grid [cols]="colsDouble" rowHeight="230px" gutterSize="10px">
 
 
     <mat-grid-tile>
       <div class="input-field col s12 l6 sign6column signature">
-        <label>Firma</label>
+        <label>Firma de quien deja el vehículo</label>
         <app-signature-field #signature ></app-signature-field>
       </div>
 
@@ -648,7 +672,7 @@
 
     <mat-grid-tile>
       <div class="input-field col s12 l6 sign6column signature">
-        <label>Firma</label>
+        <label>Firma recibido por empleado Casa Británica</label>
         <app-signature-field #signature ></app-signature-field>
       </div>
 
@@ -683,12 +707,12 @@
       </mat-grid-tile>
       </mat-grid-list>
 
-    <mat-grid-list #grid [cols]="colsDouble" rowHeight="85px" gutterSize="10px">
+    <mat-grid-list #grid [cols]="colsDouble" rowHeight="230px" gutterSize="10px">
 
 
       <mat-grid-tile>
         <div class="input-field col s12 l6 sign6column signature">
-          <label>Firma</label>
+          <label>Firmade quien recibe el vehículo</label>
           <app-signature-field #signature ></app-signature-field>
         </div>
 
@@ -696,7 +720,7 @@
 
       <mat-grid-tile>
         <div class="input-field col s12 l6 sign6column signature">
-          <label>Firma</label>
+          <label>Firma de entrega por empleado Casa Británica</label>
           <app-signature-field #signature ></app-signature-field>
         </div>
 

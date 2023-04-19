@@ -7,9 +7,9 @@
   margin: 10px;
   display: inline-flex;
 }
-.card-canvas{
-  height: 100%;
-}
+// .card-canvas{
+//   height: 100%;
+// }
 
 // .mat-form-field {
 //   display: flex;
@@ -55,7 +55,7 @@ mat-table {
 }
 
 .image_radios{
-  width: 65px;
+  width: 42px;
   margin-right: 1.2em;
 }
 
@@ -82,8 +82,41 @@ mat-cell, mat-header-cell, mat-footer-cell {
 .signature{
   width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    background: #f3f3f3;
     label{
       margin-right: 0.5em;
+      margin-top: 1em;
     }
+}
+
+@media only screen and (max-width: 600px) {
+  .mat-table {
+    overflow-x: auto;
+    display: block;
+  }
+
+  .mat-row,
+  .mat-header-row {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .mat-cell,
+  .mat-header-cell {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .mat-form-field {
+    width: 100%;
+  }
+  mat-header-row.mat-header-row.cdk-header-row.ng-star-inserted {
+    display: none;
+}
 }

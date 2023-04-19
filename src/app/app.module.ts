@@ -36,6 +36,7 @@ import { DateAdapter, MatNativeDateModule, MAT_DATE_LOCALE, MAT_DATE_FORMATS } f
 import { MomentDateModule, MomentDateAdapter } from '@angular/material-moment-adapter';
 import { VehicleStateFieldComponent } from './templates/vehicle-state-field/vehicle-state-field.component';
 import { SignatureFieldComponent } from './templates/signature-field/signature-field.component';
+import { SignaturePadComponent } from './templates/signature-pad/signature-pad.component';
 
 export const MY_FORMATS = {
   parse: {
@@ -56,7 +57,8 @@ export const MY_FORMATS = {
     HeaderComponent,
     HomeComponent,
     VehicleStateFieldComponent,
-    SignatureFieldComponent
+    SignatureFieldComponent,
+    SignaturePadComponent
   ],
   imports: [
     BrowserModule,

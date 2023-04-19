@@ -1,24 +1,24 @@
 
-<mat-grid-list #grid [cols]="cols" rowHeight="100%" gutterSize="10px">
-  <mat-grid-tile>
-<div class="canvas">
-   <canvas #canvasInv (click)="draw($event)"></canvas>
-  <button mat-raised-button color="accent" (click)="clearCanvas()">Reestablecer</button>
-</div>
-</mat-grid-tile>
-<mat-grid-tile class="estado_vehiculo">
-  <div class="accionesCanvas">
+
     <h4>Estado del vehiculo</h4>
+    <div class="contairner-canvas-actions canvas__content">
+
+  <div class="accionesCanvas canvas__controls">
+
     <mat-list role="list">
-    <mat-list-item role="listitem"><button mat-stroked-button (click)="changeColor('lightblue')"><mat-icon style="color:lightblue;">circle</mat-icon>Rayado leve</button></mat-list-item>
-    <mat-list-item role="listitem"><button mat-stroked-button (click)="changeColor('blue')"><mat-icon style="color:blue;">circle</mat-icon>Rayado fuerte</button></mat-list-item>
-    <mat-list-item role="listitem"><button mat-stroked-button (click)="changeColor('yellow')"><mat-icon style="color:yellow;">circle</mat-icon>Golpe leve</button></mat-list-item>
-    <mat-list-item role="listitem"><button mat-stroked-button (click)="changeColor('red')"><mat-icon style="color:red;">circle</mat-icon>Golpe fuerte</button></mat-list-item>
-    <mat-list-item role="listitem"><button mat-stroked-button (click)="changeColor('chartreuse')"><mat-icon style="color:chartreuse;">circle</mat-icon>Descuadre</button></mat-list-item>
-    <mat-list-item role="listitem"><button mat-stroked-button (click)="changeColor('orange')"><mat-icon style="color:orange;">circle</mat-icon>Corrosion</button></mat-list-item>
-    <mat-list-item role="listitem"><button mat-stroked-button (click)="changeColor('black')"><mat-icon style="color:black;">circle</mat-icon>Fisurado</button></mat-list-item>
-    <mat-list-item role="listitem"><button mat-stroked-button (click)="changeColor('fuchsia')"><mat-icon style="color:fuchsia;">circle</mat-icon>Pint manchada</button></mat-list-item>
+    <mat-list-item role="listitem"><button class="colors-canvas" mat-stroked-button (click)="changeColor('lightblue')"><mat-icon style="color:lightblue;">circle</mat-icon>Rayado leve</button></mat-list-item>
+    <mat-list-item role="listitem"><button class="colors-canvas" mat-stroked-button (click)="changeColor('blue')"><mat-icon style="color:blue;">circle</mat-icon>Rayado fuerte</button></mat-list-item>
+    <mat-list-item role="listitem"><button class="colors-canvas" mat-stroked-button (click)="changeColor('yellow')"><mat-icon style="color:yellow;">circle</mat-icon>Golpe leve</button></mat-list-item>
+    <mat-list-item role="listitem"><button class="colors-canvas" mat-stroked-button (click)="changeColor('red')"><mat-icon style="color:red;">circle</mat-icon>Golpe fuerte</button></mat-list-item>
+    <mat-list-item role="listitem"><button class="colors-canvas" mat-stroked-button (click)="changeColor('chartreuse')"><mat-icon style="color:chartreuse;">circle</mat-icon>Descuadre</button></mat-list-item>
+    <mat-list-item role="listitem"><button class="colors-canvas" mat-stroked-button (click)="changeColor('orange')"><mat-icon style="color:orange;">circle</mat-icon>Corrosion</button></mat-list-item>
+    <mat-list-item role="listitem"><button class="colors-canvas" mat-stroked-button (click)="changeColor('black')"><mat-icon style="color:black;">circle</mat-icon>Fisurado</button></mat-list-item>
+    <mat-list-item role="listitem"><button class="colors-canvas" mat-stroked-button (click)="changeColor('fuchsia')"><mat-icon style="color:fuchsia;">circle</mat-icon>Pint manchada</button></mat-list-item>
   </mat-list>
 </div>
-</mat-grid-tile>
-</mat-grid-list>
+
+<div class="canvas">
+  <canvas #canvasInv (click)="draw($event)"></canvas>
+ <button mat-raised-button color="accent" (click)="clearCanvas()">Reestablecer</button>
+</div>
+</div>

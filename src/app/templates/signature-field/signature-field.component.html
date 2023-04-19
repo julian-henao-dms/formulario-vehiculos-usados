@@ -1,2 +1,20 @@
-<canvas #canvas></canvas>
-<button mat-icon-button (click)="emptyField()"><mat-icon>highlight_off</mat-icon></button>
+<!-- <canvas #canvas></canvas>
+<button mat-icon-button (click)="emptyField()"><mat-icon>highlight_off</mat-icon></button> -->
+
+
+<div class="container__signatureCanvas" #canvasSignatureParentRef>
+  <canvas id="signatureCanvas" #canvasSignatureRef></canvas>
+  <div class="clean__signatureCanvas">
+    <!-- <button
+      class="clean__signatureCanvas-validate"
+      mat-raised-button
+      color="primary"
+      (click)="generateSignature()"
+    >
+      <mat-icon>done</mat-icon>&nbsp;VALIDAR FIRMA
+    </button> -->
+    <button mat-raised-button color="warn" (click)="cleanCanvas()">
+      Borrar
+    </button>
+  </div>
+</div>
