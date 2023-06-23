@@ -7,7 +7,7 @@
     <mat-grid-tile>
       <mat-form-field appearance="outline">
         <mat-label>Consignación</mat-label>
-        <input class="" matInput placeholder="Consignación" />
+        <input class="" matInput placeholder="Consignación" [(ngModel)]="dataVh.consignacion"/>
 
 
       </mat-form-field>
@@ -15,7 +15,7 @@
     <mat-grid-tile>
       <mat-form-field appearance="outline">
         <mat-label>Retoma</mat-label>
-        <input class="" matInput placeholder="Retoma" />
+        <input class="" matInput placeholder="Retoma" [(ngModel)]="dataVh.retoma"/>
 
 
       </mat-form-field>
@@ -23,7 +23,7 @@
     <mat-grid-tile>
       <mat-form-field appearance="outline">
         <mat-label>Otros</mat-label>
-        <input class="" matInput placeholder="Otros" />
+        <input class="" matInput placeholder="Otros" [(ngModel)]="dataVh.otros"/>
 
 
       </mat-form-field>
@@ -31,7 +31,7 @@
     <mat-grid-tile>
       <mat-form-field appearance="outline">
         <mat-label>Placa</mat-label>
-        <input class="" matInput placeholder="Placa" />
+        <input class="" matInput placeholder="Placa" [(ngModel)]="dataVh.placa"/>
 
 
       </mat-form-field>
@@ -43,7 +43,7 @@
     <mat-grid-tile>
       <mat-form-field appearance="outline">
         <mat-label>Interno </mat-label>
-        <input class="" matInput placeholder="Interno" />
+        <input class="" matInput placeholder="Interno" [(ngModel)]="dataVh.interno"/>
 
 
       </mat-form-field>
@@ -52,7 +52,7 @@
     <mat-grid-tile>
       <mat-form-field appearance="outline">
         <mat-label>Asesor</mat-label>
-        <input class="" matInput placeholder="Identidicación" />
+        <input class="" matInput placeholder="Asesor" [(ngModel)]="dataVh.asesor"/>
 
 
       </mat-form-field>
@@ -60,7 +60,7 @@
     <mat-grid-tile>
       <mat-form-field appearance="outline">
         <mat-label>Sala</mat-label>
-        <input class="" matInput placeholder="Sala" />
+        <input class="" matInput placeholder="Sala" [(ngModel)]="dataVh.sala"/>
 
 
       </mat-form-field>
@@ -70,7 +70,7 @@
       <mat-form-field appearance="outline">
         <mat-label>Fecha </mat-label>
         <input matInput [matDatepicker]="expedicion"
-        required id="fechaVh"/>
+        required id="fechaVh" [(ngModel)]="dataVh.fecha"/>
         <mat-hint>DD/MM/AAAA</mat-hint>
         <mat-error class="message-error">
           *La fecha de expedición es requerida.
@@ -90,7 +90,7 @@
     <mat-grid-tile>
       <mat-form-field appearance="outline">
         <mat-label>Hora</mat-label>
-        <input class="" matInput  type="time"/>
+        <input class="" matInput  type="time" [(ngModel)]="dataVh.hora"/>
 
 
       </mat-form-field>
@@ -100,7 +100,7 @@
     <mat-grid-tile>
       <mat-form-field appearance="outline">
         <mat-label>Marca</mat-label>
-        <input class="" matInput placeholder="Marca" />
+        <input class="" matInput placeholder="Marca" [(ngModel)]="dataVh.marca"/>
 
 
       </mat-form-field>
@@ -109,7 +109,7 @@
     <mat-grid-tile>
       <mat-form-field appearance="outline">
         <mat-label>Referencia</mat-label>
-        <input class="" matInput placeholder="Referencia" />
+        <input class="" matInput placeholder="Referencia" [(ngModel)]="dataVh.referencia"/>
 
 
       </mat-form-field>
@@ -117,7 +117,7 @@
     <mat-grid-tile>
       <mat-form-field appearance="outline">
         <mat-label>Modelo</mat-label>
-        <input class="" matInput placeholder="Modelo" />
+        <input class="" matInput placeholder="Modelo" [(ngModel)]="dataVh.modelo"/>
 
 
       </mat-form-field>
@@ -131,7 +131,7 @@
        <div class="container-hv-radios">
          <mat-label>Combustible:</mat-label>
          <mat-radio-group aria-label="Select an option"  name="combustible"
-         required id="combustible" color="primary">
+         required id="combustible" color="primary" [(ngModel)]="dataVh.combustible">
            <mat-radio-button [value]="0">Gasolina</mat-radio-button>
            <mat-radio-button [value]="1">Diesel</mat-radio-button>
 
@@ -144,7 +144,7 @@
 <mat-grid-tile>
  <mat-form-field appearance="outline">
    <mat-label>Kilometraje</mat-label>
-   <input class="" matInput placeholder="Kilometraje" />
+   <input class="" matInput placeholder="Kilometraje" [(ngModel)]="dataVh.km"/>
  </mat-form-field>
 </mat-grid-tile>
 
@@ -154,7 +154,7 @@
       <div class="container-hv-radios">
         <mat-label>Transmisión:</mat-label>
         <mat-radio-group aria-label="Select an option"  name="transmision"
-        required id="transmision" color="primary">
+        required id="transmision" color="primary" [(ngModel)]="dataVh.transmision">
           <mat-radio-button [value]="0">Auto</mat-radio-button>
           <mat-radio-button [value]="1">Mec</mat-radio-button>
 
@@ -167,7 +167,7 @@
 <mat-grid-tile>
   <mat-form-field appearance="outline">
     <mat-label>Color</mat-label>
-    <input class="" matInput placeholder="Color" />
+    <input class="" matInput placeholder="Color" [(ngModel)]="dataVh.color"/>
   </mat-form-field>
 </mat-grid-tile>
 
@@ -180,7 +180,7 @@
     <mat-grid-tile>
       <mat-form-field appearance="outline">
         <mat-label>Cilindraje</mat-label>
-        <input class="" matInput placeholder="Cilindraje" />
+        <input class="" matInput placeholder="Cilindraje" [(ngModel)]="dataVh.cilindraje"/>
       </mat-form-field>
     </mat-grid-tile>
 
@@ -189,7 +189,7 @@
        <div class="container-hv-radios">
          <mat-label>Tracción:</mat-label>
          <mat-radio-group aria-label="Select an option"  name="traccion"
-         required id="traccion" color="primary">
+         required id="traccion" color="primary" [(ngModel)]="dataVh.traccion">
            <mat-radio-button [value]="0">4x2</mat-radio-button>
            <mat-radio-button [value]="1">4x4</mat-radio-button>
 
@@ -203,7 +203,7 @@
         <div class="container-hv-radios">
           <mat-label>Cojineria:</mat-label>
           <mat-radio-group aria-label="Select an option"  name="cojineria"
-          required id="cojineria" color="primary">
+          required id="cojineria" color="primary" [(ngModel)]="dataVh.cojineria">
             <mat-radio-button [value]="0">Tela</mat-radio-button>
             <mat-radio-button [value]="1">Cuero</mat-radio-button>
 
@@ -218,7 +218,7 @@
         <div class="container-hv-radios">
           <mat-label>Línea:</mat-label>
           <mat-radio-group aria-label="Select an option"  name="linea"
-          required id="linea" color="primary">
+          required id="linea" color="primary" [(ngModel)]="dataVh.linea">
             <mat-radio-button [value]="0">NB</mat-radio-button>
             <mat-radio-button [value]="1">HB</mat-radio-button>
             <mat-radio-button [value]="2">QP</mat-radio-button>
@@ -254,11 +254,11 @@
         <mat-header-cell *matHeaderCellDef> Vida de la llanta </mat-header-cell>
         <mat-cell *matCellDef="let element; let i = index">
           <mat-form-field class="matFieldTable" appearance="outline">
-            <input matInput type="text" [(ngModel)]="inputValues[i].delIzq" *ngIf="i === 0" />
-            <input matInput type="text" [(ngModel)]="inputValues[i].delDer" *ngIf="i === 1" />
-            <input matInput type="text" [(ngModel)]="inputValues[i].trasIzq" *ngIf="i === 2" />
-            <input matInput type="text" [(ngModel)]="inputValues[i].trasDer" *ngIf="i === 3" />
-            <input matInput type="text" [(ngModel)]="inputValues[i].repuesto" *ngIf="i === 4" />
+            <input matInput type="text" [(ngModel)]="dataVh.porcllantadelizq" *ngIf="i === 0" />
+            <input matInput type="text" [(ngModel)]="dataVh.porcllantadelder" *ngIf="i === 1" />
+            <input matInput type="text" [(ngModel)]="dataVh.porcllantatraizq" *ngIf="i === 2" />
+            <input matInput type="text" [(ngModel)]="dataVh.porcllantatrader" *ngIf="i === 3" />
+            <input matInput type="text" [(ngModel)]="dataVh.porcrep" *ngIf="i === 4" />
           </mat-form-field>
         </mat-cell>
       </ng-container>
@@ -268,11 +268,11 @@
         <mat-header-cell *matHeaderCellDef> Marca </mat-header-cell>
         <mat-cell *matCellDef="let element; let i = index">
           <mat-form-field class="matFieldTable" appearance="outline">
-            <input matInput type="text" [(ngModel)]="inputValues[i].marca_di" *ngIf="i === 0" />
-            <input matInput type="text" [(ngModel)]="inputValues[i].marca_dd" *ngIf="i === 1" />
-            <input matInput type="text" [(ngModel)]="inputValues[i].marca_ti" *ngIf="i === 2" />
-            <input matInput type="text" [(ngModel)]="inputValues[i].marca_td" *ngIf="i === 3" />
-            <input matInput type="text" [(ngModel)]="inputValues[i].marca_rep" *ngIf="i === 4" />
+            <input matInput type="text" [(ngModel)]="dataVh.marcallantadelizq" *ngIf="i === 0" />
+            <input matInput type="text" [(ngModel)]="dataVh.marcallantadelder" *ngIf="i === 1" />
+            <input matInput type="text" [(ngModel)]="dataVh.marcallantatraizq" *ngIf="i === 2" />
+            <input matInput type="text" [(ngModel)]="dataVh.marcallantatrader" *ngIf="i === 3" />
+            <input matInput type="text" [(ngModel)]="dataVh.marcarep" *ngIf="i === 4" />
           </mat-form-field>
         </mat-cell>
       </ng-container>
@@ -300,11 +300,11 @@
         <mat-header-cell *matHeaderCellDef> Rin </mat-header-cell>
         <mat-cell *matCellDef="let element; let i = index">
           <mat-form-field class="matFieldTable" appearance="outline">
-            <input matInput type="text" [(ngModel)]="inputValuesRines[i].rinDelIzq" *ngIf="i === 0" />
-            <input matInput type="text" [(ngModel)]="inputValuesRines[i].rinDelDer" *ngIf="i === 1" />
-            <input matInput type="text" [(ngModel)]="inputValuesRines[i].rinTrasIzq" *ngIf="i === 2" />
-            <input matInput type="text" [(ngModel)]="inputValuesRines[i].rinTrasDer" *ngIf="i === 3" />
-            <input matInput type="text" [(ngModel)]="inputValuesRines[i].rinRepuesto" *ngIf="i === 4" />
+            <input matInput type="text" [(ngModel)]="dataVh.porcrindelizq" *ngIf="i === 0" />
+            <input matInput type="text" [(ngModel)]="dataVh.porcrindelder" *ngIf="i === 1" />
+            <input matInput type="text" [(ngModel)]="dataVh.porcrintraizq" *ngIf="i === 2" />
+            <input matInput type="text" [(ngModel)]="dataVh.porcrintrader" *ngIf="i === 3" />
+            <input matInput type="text" [(ngModel)]="dataVh.porcrinrep" *ngIf="i === 4" />
           </mat-form-field>
         </mat-cell>
       </ng-container>
@@ -313,11 +313,11 @@
         <mat-header-cell *matHeaderCellDef> Tapa </mat-header-cell>
         <mat-cell *matCellDef="let element; let i = index">
           <mat-form-field class="matFieldTable" appearance="outline">
-            <input matInput type="text" [(ngModel)]="inputValuesRines[i].tapaDelIzq" *ngIf="i === 0" />
-            <input matInput type="text" [(ngModel)]="inputValuesRines[i].tapaDelDer" *ngIf="i === 1" />
-            <input matInput type="text" [(ngModel)]="inputValuesRines[i].tapaTrasIzq" *ngIf="i === 2" />
-            <input matInput type="text" [(ngModel)]="inputValuesRines[i].tapaTrasDer" *ngIf="i === 3" />
-            <input matInput type="text" [(ngModel)]="inputValuesRines[i].tapaRep" *ngIf="i === 4" />
+            <input matInput type="text" [(ngModel)]="dataVh.taparindelizq" *ngIf="i === 0" />
+            <input matInput type="text" [(ngModel)]="dataVh.taparindelder" *ngIf="i === 1" />
+            <input matInput type="text" [(ngModel)]="dataVh.taparintraizq" *ngIf="i === 2" />
+            <input matInput type="text" [(ngModel)]="dataVh.taparintrader" *ngIf="i === 3" />
+            <input matInput type="text" [(ngModel)]="dataVh.taparinrep" *ngIf="i === 4" />
           </mat-form-field>
         </mat-cell>
       </ng-container>
@@ -327,11 +327,11 @@
         <mat-header-cell *matHeaderCellDef> Marca </mat-header-cell>
         <mat-cell *matCellDef="let element; let i = index">
           <mat-form-field class="matFieldTable" appearance="outline">
-            <input matInput type="text" [(ngModel)]="inputValuesRines[i].marca_di_rin" *ngIf="i === 0" />
-            <input matInput type="text" [(ngModel)]="inputValuesRines[i].marca_dd_rin" *ngIf="i === 1" />
-            <input matInput type="text" [(ngModel)]="inputValuesRines[i].marca_ti_rin" *ngIf="i === 2" />
-            <input matInput type="text" [(ngModel)]="inputValuesRines[i].marca_td_rin" *ngIf="i === 3" />
-            <input matInput type="text" [(ngModel)]="inputValuesRines[i].marca_rep_rin" *ngIf="i === 4" />
+            <input matInput type="text" [(ngModel)]="dataVh.marcarindelizq" *ngIf="i === 0" />
+            <input matInput type="text" [(ngModel)]="dataVh.marcarindelder" *ngIf="i === 1" />
+            <input matInput type="text" [(ngModel)]="dataVh.marcarintraizq" *ngIf="i === 2" />
+            <input matInput type="text" [(ngModel)]="dataVh.marcarintrader" *ngIf="i === 3" />
+            <input matInput type="text" [(ngModel)]="dataVh.marcarinrep" *ngIf="i === 4" />
           </mat-form-field>
         </mat-cell>
       </ng-container>
@@ -346,13 +346,13 @@
       <mat-icon>badge </mat-icon>
       <h2 class="subtitle-hv">Documentos</h2>
     </div>
-  <mat-grid-list #grid [cols]="colsAlt" rowHeight="85px" gutterSize="10px">
+  <mat-grid-list #grid [cols]="colsTrp" rowHeight="85px" gutterSize="10px">
     <mat-grid-tile>
       <fieldset>
         <div class="container-hv-radios">
           <mat-label>Matrícula:</mat-label>
           <mat-radio-group aria-label="Select an option"  name="matricula"
-          required id="matricula" color="primary">
+          required id="matricula" color="primary" [(ngModel)]="dataVh.matricula">
             <mat-radio-button [value]="1">Si</mat-radio-button>
             <mat-radio-button [value]="0">No</mat-radio-button>
 
@@ -366,7 +366,7 @@
         <div class="container-hv-radios">
           <mat-label>SOAT:</mat-label>
           <mat-radio-group aria-label="Select an option"  name="soat"
-          required id="soat" color="primary">
+          required id="soat" color="primary" [(ngModel)]="dataVh.soat">
             <mat-radio-button [value]="1">Si</mat-radio-button>
             <mat-radio-button [value]="0">No</mat-radio-button>
 
@@ -380,7 +380,7 @@
         <div class="container-hv-radios">
           <mat-label>RTM:</mat-label>
           <mat-radio-group aria-label="Select an option"  name="rtm"
-          required id="rtm" color="primary">
+          required id="rtm" color="primary" [(ngModel)]="dataVh.rtm">
             <mat-radio-button [value]="1">Si</mat-radio-button>
             <mat-radio-button [value]="0">No</mat-radio-button>
 
@@ -393,23 +393,25 @@
 
   <mat-form-field class="example-full-width" appearance="outline">
     <mat-label>Observaciones</mat-label>
-    <textarea matInput placeholder="Observaciones"></textarea>
+    <textarea matInput placeholder="Observaciones" id="notas" [(ngModel)]="dataVh.notas"></textarea>
   </mat-form-field>
   </mat-card>
 
 
   <mat-card class="main-card-vh-u">
     <div class="subtitle-container">
-      <mat-icon>badge </mat-icon>
-      <h2 class="subtitle-hv">Documentos</h2>
+      <mat-icon><span class="material-symbols-outlined">
+        home_repair_service
+        </span> </mat-icon>
+      <h2 class="subtitle-hv">Accesorios</h2>
     </div>
-  <mat-grid-list #grid [cols]="colsAlt" rowHeight="85px" gutterSize="10px">
+  <mat-grid-list #grid [cols]="colsTrp" rowHeight="85px" gutterSize="10px">
     <mat-grid-tile>
       <fieldset>
         <div class="container-hv-radios">
          <img  class="image_radios" src="/assets/images/llave.png" alt="">
-          <mat-radio-group aria-label="Select an option"  name="matricula"
-          required id="matricula" color="primary">
+          <mat-radio-group aria-label="Select an option"  name="incllave"
+          required id="incllave" color="primary" [(ngModel)]="dataVh.incllave">
             <mat-radio-button [value]="1">Si</mat-radio-button>
             <mat-radio-button [value]="0">No</mat-radio-button>
 
@@ -422,8 +424,8 @@
       <fieldset>
         <div class="container-hv-radios">
           <img  class="image_radios" src="/assets/images/llaveRepuesto.png" alt="">
-          <mat-radio-group aria-label="Select an option"  name="soat"
-          required id="soat" color="primary">
+          <mat-radio-group aria-label="Select an option"  name="increpllave"
+          required id="increpllave" color="primary" [(ngModel)]="dataVh.increpllave">
             <mat-radio-button [value]="1">Si</mat-radio-button>
             <mat-radio-button [value]="0">No</mat-radio-button>
 
@@ -436,8 +438,8 @@
       <fieldset>
         <div class="container-hv-radios">
           <img  class="image_radios" src="/assets/images/manual.png" alt="">
-          <mat-radio-group aria-label="Select an option"  name="rtm"
-          required id="rtm" color="primary">
+          <mat-radio-group aria-label="Select an option"  name="incmanual"
+          required id="incmanual" color="primary" [(ngModel)]="dataVh.incmanual">
             <mat-radio-button [value]="1">Si</mat-radio-button>
             <mat-radio-button [value]="0">No</mat-radio-button>
 
@@ -447,13 +449,13 @@
       </fieldset>
     </mat-grid-tile>
   </mat-grid-list>
-  <mat-grid-list #grid [cols]="colsAlt" rowHeight="85px" gutterSize="10px">
+  <mat-grid-list #grid [cols]="colsTrp" rowHeight="85px" gutterSize="10px">
     <mat-grid-tile>
       <fieldset>
         <div class="container-hv-radios">
          <img  class="image_radios" src="/assets/images/encendedor.png" alt="">
-          <mat-radio-group aria-label="Select an option"  name="matricula"
-          required id="matricula" color="primary">
+          <mat-radio-group aria-label="Select an option"  name="incencendedor"
+          required id="incencendedor" color="primary" [(ngModel)]="dataVh.incencendedor">
             <mat-radio-button [value]="1">Si</mat-radio-button>
             <mat-radio-button [value]="0">No</mat-radio-button>
 
@@ -466,8 +468,8 @@
       <fieldset>
         <div class="container-hv-radios">
           <img  class="image_radios" src="/assets/images/cruceta.png" alt="">
-          <mat-radio-group aria-label="Select an option"  name="soat"
-          required id="soat" color="primary">
+          <mat-radio-group aria-label="Select an option"  name="inccruceta"
+          required id="inccruceta" color="primary" [(ngModel)]="dataVh.inccruceta">
             <mat-radio-button [value]="1">Si</mat-radio-button>
             <mat-radio-button [value]="0">No</mat-radio-button>
 
@@ -480,8 +482,8 @@
       <fieldset>
         <div class="container-hv-radios">
           <img  class="image_radios" src="/assets/images/llavepernos.png" alt="">
-          <mat-radio-group aria-label="Select an option"  name="rtm"
-          required id="rtm" color="primary">
+          <mat-radio-group aria-label="Select an option"  name="incllave_tipo1"
+          required id="incllave_tipo1" color="primary" [(ngModel)]="dataVh.incllave_tipo1">
             <mat-radio-button [value]="1">Si</mat-radio-button>
             <mat-radio-button [value]="0">No</mat-radio-button>
 
@@ -491,13 +493,13 @@
       </fieldset>
     </mat-grid-tile>
   </mat-grid-list>
-  <mat-grid-list #grid [cols]="colsAlt" rowHeight="85px" gutterSize="10px">
+  <mat-grid-list #grid [cols]="colsTrp" rowHeight="85px" gutterSize="10px">
     <mat-grid-tile>
       <fieldset>
         <div class="container-hv-radios">
          <img  class="image_radios" src="/assets/images/manivela.png" alt="">
-          <mat-radio-group aria-label="Select an option"  name="matricula"
-          required id="matricula" color="primary">
+          <mat-radio-group aria-label="Select an option"  name="incllave_tipo2"
+          required id="incllave_tipo2" color="primary" [(ngModel)]="dataVh.incllave_tipo2">
             <mat-radio-button [value]="1">Si</mat-radio-button>
             <mat-radio-button [value]="0">No</mat-radio-button>
 
@@ -510,8 +512,8 @@
       <fieldset>
         <div class="container-hv-radios">
           <img  class="image_radios" src="/assets/images/gato.png" alt="">
-          <mat-radio-group aria-label="Select an option"  name="soat"
-          required id="soat" color="primary">
+          <mat-radio-group aria-label="Select an option"  name="incgato"
+          required id="incgato" color="primary" [(ngModel)]="dataVh.incgato">
             <mat-radio-button [value]="1">Si</mat-radio-button>
             <mat-radio-button [value]="0">No</mat-radio-button>
 
@@ -524,8 +526,8 @@
       <fieldset>
         <div class="container-hv-radios">
           <img  class="image_radios" src="/assets/images/herramientas.png" alt="">
-          <mat-radio-group aria-label="Select an option"  name="rtm"
-          required id="rtm" color="primary">
+          <mat-radio-group aria-label="Select an option"  name="inckith"
+          required id="inckith" color="primary" [(ngModel)]="dataVh.inckith">
             <mat-radio-button [value]="1">Si</mat-radio-button>
             <mat-radio-button [value]="0">No</mat-radio-button>
 
@@ -535,13 +537,13 @@
       </fieldset>
     </mat-grid-tile>
   </mat-grid-list>
-  <mat-grid-list #grid [cols]="colsAlt" rowHeight="85px" gutterSize="10px">
+  <mat-grid-list #grid [cols]="colsTrp" rowHeight="85px" gutterSize="10px">
     <mat-grid-tile>
       <fieldset>
         <div class="container-hv-radios">
          <img  class="image_radios" src="/assets/images/antena.png" alt="">
-          <mat-radio-group aria-label="Select an option"  name="matricula"
-          required id="matricula" color="primary">
+          <mat-radio-group aria-label="Select an option"  name="incantena"
+          required id="incantena" color="primary" [(ngModel)]="dataVh.incantena">
             <mat-radio-button [value]="1">Si</mat-radio-button>
             <mat-radio-button [value]="0">No</mat-radio-button>
 
@@ -554,8 +556,8 @@
       <fieldset>
         <div class="container-hv-radios">
           <img  class="image_radios" src="/assets/images/cubremaletero.png" alt="">
-          <mat-radio-group aria-label="Select an option"  name="soat"
-          required id="soat" color="primary">
+          <mat-radio-group aria-label="Select an option"  name="incmaletero"
+          required id="incmaletero" color="primary" [(ngModel)]="dataVh.incmaletero">
             <mat-radio-button [value]="1">Si</mat-radio-button>
             <mat-radio-button [value]="0">No</mat-radio-button>
 
@@ -567,9 +569,9 @@
     <mat-grid-tile>
       <fieldset>
         <div class="container-hv-radios">
-          <img  class="image_radios" src="/assets/images/gasolina.png" alt="">
-          <mat-radio-group aria-label="Select an option"  name="rtm"
-          required id="rtm" color="primary">
+         <img  class="image_radios" src="/assets/images/bateria.png" alt="">
+          <mat-radio-group aria-label="Select an option"  name="incbateria"
+          required id="incbateria" color="primary" [(ngModel)]="dataVh.incbateria">
             <mat-radio-button [value]="1">Si</mat-radio-button>
             <mat-radio-button [value]="0">No</mat-radio-button>
 
@@ -579,27 +581,14 @@
       </fieldset>
     </mat-grid-tile>
   </mat-grid-list>
-  <mat-grid-list #grid [cols]="colsAlt" rowHeight="85px" gutterSize="10px">
-    <mat-grid-tile>
-      <fieldset>
-        <div class="container-hv-radios">
-         <img  class="image_radios" src="/assets/images/bateria.png" alt="">
-          <mat-radio-group aria-label="Select an option"  name="matricula"
-          required id="matricula" color="primary">
-            <mat-radio-button [value]="1">Si</mat-radio-button>
-            <mat-radio-button [value]="0">No</mat-radio-button>
+  <mat-grid-list #grid [cols]="colsTrp" rowHeight="85px" gutterSize="10px">
 
-          </mat-radio-group>
-
-        </div>
-      </fieldset>
-    </mat-grid-tile>
     <mat-grid-tile>
       <fieldset>
         <div class="container-hv-radios">
           <img  class="image_radios" src="/assets/images/radio.png" alt="">
-          <mat-radio-group aria-label="Select an option"  name="soat"
-          required id="soat" color="primary">
+          <mat-radio-group aria-label="Select an option"  name="incradio"
+          required id="incradio" color="primary" [(ngModel)]="dataVh.incradio">
             <mat-radio-button [value]="1">Si</mat-radio-button>
             <mat-radio-button [value]="0">No</mat-radio-button>
 
@@ -609,6 +598,10 @@
       </fieldset>
     </mat-grid-tile>
     <mat-grid-tile>
+
+    </mat-grid-tile>
+    <mat-grid-tile>
+
       <!-- <fieldset>
         <div class="container-hv-radios">
           <img  class="image_radios" src="/assets/images/gasolina.png" alt="">
@@ -622,12 +615,40 @@
         </div>
       </fieldset> -->
     </mat-grid-tile>
+
+
+  </mat-grid-list>
+  <mat-grid-list #grid [cols]="colsDouble" rowHeight="25em" gutterSize="10px">
+    <mat-grid-tile>  <section>
+      <div class="fuel__meter">
+        <div class="meter__value">
+          <div class="meter__image">
+            <img [src]="this.image" alt="meter image">
+          </div>
+          <mat-radio-group aria-labelledby="radio-group-label"
+          class="radio-group-label" [(ngModel)]="dataVh.nivelcombustible">
+          <div class="radio-group-container">
+          <mat-radio-button class="radio"
+          *ngFor="let item of levels; let isFirst = first"
+          [value]="item.id"
+          (change)="onSelectedImage(item.id)"
+          [ngClass]="{'first-radio': isFirst}">
+            {{item.label}}
+          </mat-radio-button>
+        </div>
+          </mat-radio-group>
+        </div>
+
+      </div>
+    </section>
+  </mat-grid-tile>
+    <mat-grid-tile>  <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Observaciones</mat-label>
+      <textarea matInput placeholder="Observaciones" [(ngModel)]="dataVh.notasdocumentos"></textarea>
+    </mat-form-field> </mat-grid-tile>
   </mat-grid-list>
 
-  <mat-form-field class="example-full-width" appearance="outline">
-    <mat-label>Observaciones</mat-label>
-    <textarea matInput placeholder="Observaciones"></textarea>
-  </mat-form-field>
+
   </mat-card>
 
   <mat-card class="main-card-vh-u">
@@ -635,7 +656,7 @@
     <mat-grid-tile>
       <mat-form-field appearance="outline">
         <mat-label>Nombre de quien deja el vehículo</mat-label>
-        <input class="" matInput placeholder="Nombre de quien deja el vehículo" />
+        <input class="" matInput placeholder="Nombre de quien deja el vehículo" [(ngModel)]="dataVh.clienteentrega" />
 
 
       </mat-form-field>
@@ -645,7 +666,7 @@
       <mat-form-field appearance="outline">
         <mat-label>Fecha Entrada</mat-label>
         <input matInput [matDatepicker]="fechaEntrada"
-        required id="fechaEntrada"/>
+        required id="fechaEntrada" [(ngModel)]="dataVh.fechaentrada"/>
         <mat-hint>DD/MM/AAAA</mat-hint>
         <mat-error class="message-error">
           *La fecha de expedición es requerida.
@@ -683,7 +704,7 @@
       <mat-grid-tile>
         <mat-form-field appearance="outline">
           <mat-label>Nombre de quien recibe el vehículo</mat-label>
-          <input class="" matInput placeholder="Nombre de quien recibe el vehículo" />
+          <input class="" matInput placeholder="Nombre de quien recibe el vehículo" [(ngModel)]="dataVh.clienterecibe"/>
 
 
         </mat-form-field>
@@ -693,7 +714,7 @@
         <mat-form-field appearance="outline">
           <mat-label>Fecha Salida</mat-label>
           <input matInput [matDatepicker]="fechaSalida"
-          required id="fechaSalida"/>
+          required id="fechaSalida" [(ngModel)]="dataVh.fechasalida"/>
           <mat-hint>DD/MM/AAAA</mat-hint>
           <mat-error class="message-error">
             *La fecha de expedición es requerida.

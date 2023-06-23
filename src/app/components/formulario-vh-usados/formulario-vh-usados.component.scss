@@ -90,6 +90,28 @@ mat-cell, mat-header-cell, mat-footer-cell {
       margin-top: 1em;
     }
 }
+.radio-group-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.radio {
+  margin-top: 1.5em;
+}
+.first-radio {
+  margin-left: 1.2em;
+}
+
+.meter__image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.fuel__meter {
+  width: 100%;
+  /* Agrega otros estilos necesarios */
+}
+
 
 @media only screen and (max-width: 600px) {
   .mat-table {
@@ -120,3 +142,5 @@ mat-cell, mat-header-cell, mat-footer-cell {
     display: none;
 }
 }
+
+
