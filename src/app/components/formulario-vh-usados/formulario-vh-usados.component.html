@@ -7,33 +7,61 @@
     <mat-grid-tile>
       <mat-form-field appearance="outline">
         <mat-label>Consignación</mat-label>
-        <input class="" matInput placeholder="Consignación" [(ngModel)]="dataVh.consignacion"/>
+        <input class="" matInput placeholder="Consignación"
+        [pattern]="expresiones.numbersTextSpaces"
+         [(ngModel)]="dataVh.consignacion"
+         name="consignacion" #consignacion="ngModel"
+         id="consignacion"/>
 
-
+         <mat-hint  class="message-error"
+         [class.invalid]="consignacion.invalid" *ngIf="consignacion.errors?.['pattern']">
+           Consignación no válida, solo se permiten números y letras
+        </mat-hint>
       </mat-form-field>
     </mat-grid-tile>
     <mat-grid-tile>
       <mat-form-field appearance="outline">
         <mat-label>Retoma</mat-label>
-        <input class="" matInput placeholder="Retoma" [(ngModel)]="dataVh.retoma"/>
+        <input class="" matInput placeholder="Retoma"  [pattern]="expresiones.numbersTextSpaces"
+        [(ngModel)]="dataVh.retoma"
+        name="retoma" #retoma="ngModel"
+         id="retoma"/>
 
+         <mat-hint  class="message-error"
+         [class.invalid]="retoma.invalid" *ngIf="retoma.errors?.['pattern']">
+           Campo retoma no válido, solo se permiten números y letras.
+        </mat-hint>
 
       </mat-form-field>
     </mat-grid-tile>
     <mat-grid-tile>
       <mat-form-field appearance="outline">
         <mat-label>Otros</mat-label>
-        <input class="" matInput placeholder="Otros" [(ngModel)]="dataVh.otros"/>
+        <input class="" matInput placeholder="Otros"
+        [pattern]="expresiones.numbersTextSpaces"
+         [(ngModel)]="dataVh.otros"
+         name="otros" #otros="ngModel"
+         id="otros"/>
 
-
+         <mat-hint  class="message-error"
+         [class.invalid]="otros.invalid" *ngIf="otros.errors?.['pattern']">
+           Campo otros no válido, solo se permiten números y letras.
+        </mat-hint>
       </mat-form-field>
     </mat-grid-tile>
     <mat-grid-tile>
       <mat-form-field appearance="outline">
         <mat-label>Placa</mat-label>
-        <input class="" matInput placeholder="Placa" [(ngModel)]="dataVh.placa"/>
+        <input class="" matInput placeholder="Placa"
+        [pattern]="expresiones.numbersTextSpaces"
+        [(ngModel)]="dataVh.placa"
+        name="placa" #placa="ngModel"
+        id="placa"/>
 
-
+        <mat-hint  class="message-error"
+        [class.invalid]="placa.invalid" *ngIf="placa.errors?.['pattern']">
+          Campo placa no válido, solo se permiten números y letras.
+       </mat-hint>
       </mat-form-field>
     </mat-grid-tile>
 
@@ -43,7 +71,16 @@
     <mat-grid-tile>
       <mat-form-field appearance="outline">
         <mat-label>Interno </mat-label>
-        <input class="" matInput placeholder="Interno" [(ngModel)]="dataVh.interno"/>
+        <input class="" matInput placeholder="Interno"
+        [pattern]="expresiones.numbersTextSpaces"
+        [(ngModel)]="dataVh.interno"
+        name="interno" #interno="ngModel"
+        id="interno"/>
+
+        <mat-hint  class="message-error"
+        [class.invalid]="interno.invalid" *ngIf="interno.errors?.['pattern']">
+          Campo interno no válido, solo se permiten números y letras.
+       </mat-hint>
 
 
       </mat-form-field>
@@ -52,17 +89,33 @@
     <mat-grid-tile>
       <mat-form-field appearance="outline">
         <mat-label>Asesor</mat-label>
-        <input class="" matInput placeholder="Asesor" [(ngModel)]="dataVh.asesor"/>
+        <input class="" matInput placeholder="Asesor"
+        [(ngModel)]="dataVh.asesor"
+         [pattern]="expresiones.numbersTextSpaces"
+         name="asesor" #asesor="ngModel"
+         id="asesor"
+         />
 
-
+         <mat-hint  class="message-error"
+         [class.invalid]="asesor.invalid" *ngIf="asesor.errors?.['pattern']">
+           Campo asesor no válido, solo se permiten números y letras.
+        </mat-hint>
       </mat-form-field>
     </mat-grid-tile>
     <mat-grid-tile>
       <mat-form-field appearance="outline">
         <mat-label>Sala</mat-label>
-        <input class="" matInput placeholder="Sala" [(ngModel)]="dataVh.sala"/>
+        <input class="" matInput placeholder="Sala"
+        [pattern]="expresiones.numbersTextSpaces"
+        [(ngModel)]="dataVh.sala"
+         name="sala" #sala="ngModel"
+         id="sala"
+        />
 
-
+        <mat-hint  class="message-error"
+        [class.invalid]="sala.invalid" *ngIf="sala.errors?.['pattern']">
+          Campo sala no válido, solo se permiten números y letras.
+       </mat-hint>
       </mat-form-field>
     </mat-grid-tile>
 
@@ -70,9 +123,13 @@
       <mat-form-field appearance="outline">
         <mat-label>Fecha </mat-label>
         <input matInput [matDatepicker]="expedicion"
-        required id="fechaVh" [(ngModel)]="dataVh.fecha"/>
+        required id="fechaVh" [(ngModel)]="dataVh.fecha"
+        #fechaVh="ngModel"
+        />
         <mat-hint>DD/MM/AAAA</mat-hint>
-        <mat-error class="message-error">
+        <mat-error class="message-error"
+        [class.invalid]="fechaVh.invalid"
+        *ngIf="fechaVh.errors?.['required']">
           *La fecha de expedición es requerida.
         </mat-error>
         <mat-datepicker-toggle
@@ -100,8 +157,16 @@
     <mat-grid-tile>
       <mat-form-field appearance="outline">
         <mat-label>Marca</mat-label>
-        <input class="" matInput placeholder="Marca" [(ngModel)]="dataVh.marca"/>
-
+        <input class="" matInput placeholder="Marca"
+         [(ngModel)]="dataVh.marca"
+         [pattern]="expresiones.numbersTextSpaces"
+         name="marca" #marca="ngModel"
+         id="marca"
+         />
+         <mat-hint  class="message-error"
+         [class.invalid]="marca.invalid" *ngIf="marca.errors?.['pattern']">
+           Campo marca no válido, solo se permiten números y letras.
+        </mat-hint>
 
       </mat-form-field>
     </mat-grid-tile>
@@ -109,16 +174,32 @@
     <mat-grid-tile>
       <mat-form-field appearance="outline">
         <mat-label>Referencia</mat-label>
-        <input class="" matInput placeholder="Referencia" [(ngModel)]="dataVh.referencia"/>
-
+        <input class="" matInput placeholder="Referencia"
+         [(ngModel)]="dataVh.referencia"
+         [pattern]="expresiones.numbersTextSpaces"
+         name="referencia" #referencia="ngModel"
+         id="referencia"
+         />
+         <mat-hint  class="message-error"
+         [class.invalid]="referencia.invalid" *ngIf="referencia.errors?.['pattern']">
+           Campo referencia no válido, solo se permiten números y letras.
+        </mat-hint>
 
       </mat-form-field>
     </mat-grid-tile>
     <mat-grid-tile>
       <mat-form-field appearance="outline">
         <mat-label>Modelo</mat-label>
-        <input class="" matInput placeholder="Modelo" [(ngModel)]="dataVh.modelo"/>
+        <input class="" matInput placeholder="Modelo"
+         [(ngModel)]="dataVh.modelo"
+         [pattern]="expresiones.numbersTextSpaces"
+         name="modelo" #modelo="ngModel"
+         id="modelo"/>
 
+         <mat-hint  class="message-error"
+         [class.invalid]="modelo.invalid" *ngIf="modelo.errors?.['pattern']">
+           Campo modelo no válido, solo se permiten números y letras.
+        </mat-hint>
 
       </mat-form-field>
     </mat-grid-tile>
@@ -144,7 +225,15 @@
 <mat-grid-tile>
  <mat-form-field appearance="outline">
    <mat-label>Kilometraje</mat-label>
-   <input class="" matInput placeholder="Kilometraje" [(ngModel)]="dataVh.km"/>
+   <input class="" matInput placeholder="Kilometraje" [(ngModel)]="dataVh.km"
+   name="km" #km="ngModel"
+   id="km"/>
+
+   <mat-hint  class="message-error"
+   [class.invalid]="km.invalid" *ngIf="km.errors?.['pattern']">
+     Campo kilometraje no válido, solo se permiten números y letras.
+  </mat-hint>
+
  </mat-form-field>
 </mat-grid-tile>
 
@@ -167,7 +256,16 @@
 <mat-grid-tile>
   <mat-form-field appearance="outline">
     <mat-label>Color</mat-label>
-    <input class="" matInput placeholder="Color" [(ngModel)]="dataVh.color"/>
+    <input class="" matInput placeholder="Color"
+    [(ngModel)]="dataVh.color"
+    [pattern]="expresiones.numbersTextSpaces"
+    name="color" #color="ngModel"
+   id="color"/>
+
+   <mat-hint  class="message-error"
+   [class.invalid]="color.invalid" *ngIf="color.errors?.['pattern']">
+     Campo color no válido, solo se permiten números y letras.
+  </mat-hint>
   </mat-form-field>
 </mat-grid-tile>
 
@@ -180,7 +278,16 @@
     <mat-grid-tile>
       <mat-form-field appearance="outline">
         <mat-label>Cilindraje</mat-label>
-        <input class="" matInput placeholder="Cilindraje" [(ngModel)]="dataVh.cilindraje"/>
+        <input class="" matInput placeholder="Cilindraje"
+         [(ngModel)]="dataVh.cilindraje"
+         [pattern]="expresiones.numbersTextSpaces"
+         name="cilindraje" #cilindraje="ngModel"
+         id="cilindraje"
+         />
+         <mat-hint  class="message-error"
+         [class.invalid]="cilindraje.invalid" *ngIf="cilindraje.errors?.['pattern']">
+           Campo cilindraje no válido, solo se permiten números y letras.
+        </mat-hint>
       </mat-form-field>
     </mat-grid-tile>
 
@@ -253,13 +360,73 @@
       <ng-container matColumnDef="vida_llanta">
         <mat-header-cell *matHeaderCellDef> Vida de la llanta </mat-header-cell>
         <mat-cell *matCellDef="let element; let i = index">
-          <mat-form-field class="matFieldTable" appearance="outline">
-            <input matInput type="text" [(ngModel)]="dataVh.porcllantadelizq" *ngIf="i === 0" />
-            <input matInput type="text" [(ngModel)]="dataVh.porcllantadelder" *ngIf="i === 1" />
-            <input matInput type="text" [(ngModel)]="dataVh.porcllantatraizq" *ngIf="i === 2" />
-            <input matInput type="text" [(ngModel)]="dataVh.porcllantatrader" *ngIf="i === 3" />
-            <input matInput type="text" [(ngModel)]="dataVh.porcrep" *ngIf="i === 4" />
-          </mat-form-field>
+          <mat-form-field class="matFieldTable example-full-width" appearance="outline" *ngIf="i === 0">
+            <!-- <mat-form-field appearance="outline"> -->
+            <input matInput
+            [(ngModel)]="dataVh.porcllantadelizq"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                    [pattern]="expresiones.numsPorc"   type="number"
+                    name="porcllantadelizq" #porcllantadelizq="ngModel"
+                    id="porcllantadelizq"/>
+                    <mat-icon matSuffix>percent</mat-icon>
+                     <mat-hint  class="message-error"
+         [class.invalid]="porcllantadelizq.invalid" *ngIf="porcllantadelizq.errors?.['pattern']">
+           En este campo solo están permitidos los números enteros de 0 a 100.
+        </mat-hint>
+      </mat-form-field>
+      <mat-form-field class="matFieldTable example-full-width" appearance="outline" *ngIf="i === 1">
+            <input matInput
+            [(ngModel)]="dataVh.porcllantadelder"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+            [pattern]="expresiones.numsPorc"   type="number"
+                    name="porcllantadelder" #porcllantadelder="ngModel"
+                    id="porcllantadelder"/>
+                     <mat-icon matSuffix>percent</mat-icon>
+                     <mat-hint  class="message-error"
+         [class.invalid]="porcllantadelder.invalid" *ngIf="porcllantadelder.errors?.['pattern']">
+           En este campo solo están permitidos los números enteros de 0 a 100.
+        </mat-hint>
+      </mat-form-field>
+      <mat-form-field class="matFieldTable example-full-width" appearance="outline" *ngIf="i === 2">
+            <input matInput
+            [(ngModel)]="dataVh.porcllantatraizq"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+            [pattern]="expresiones.numsPorc"   type="number"
+                    name="porcllantatraizq" #porcllantatraizq="ngModel"
+                    id="porcllantatraizq"/>
+                     <mat-icon matSuffix>percent</mat-icon>
+                     <mat-hint  class="message-error"
+         [class.invalid]="porcllantatraizq.invalid" *ngIf="porcllantatraizq.errors?.['pattern']">
+           En este campo solo están permitidos los números enteros de 0 a 100.
+        </mat-hint>
+      </mat-form-field>
+      <mat-form-field class="matFieldTable example-full-width" appearance="outline" *ngIf="i === 3">
+            <input matInput
+            [(ngModel)]="dataVh.porcllantatrader"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                    [pattern]="expresiones.numsPorc"   type="number"
+                    name="porcllantatrader" #porcllantatrader="ngModel"
+                    id="porcllantatrader"/>
+                     <mat-icon matSuffix>percent</mat-icon>
+                     <mat-hint  class="message-error"
+         [class.invalid]="porcllantatrader.invalid" *ngIf="porcllantatrader.errors?.['pattern']">
+           En este campo solo están permitidos los números enteros de 0 a 100.
+        </mat-hint>
+      </mat-form-field>
+      <mat-form-field class="matFieldTable example-full-width" appearance="outline" *ngIf="i === 4">
+            <input matInput
+            [(ngModel)]="dataVh.porcrep"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                    [pattern]="expresiones.numsPorc"   type="number"
+                    name="porcrep" #porcrep="ngModel"
+                    id="porcrep"/>
+                     <mat-icon matSuffix>percent</mat-icon>
+                     <mat-hint  class="message-error"
+         [class.invalid]="porcrep.invalid" *ngIf="porcrep.errors?.['pattern']">
+           En este campo solo están permitidos los números enteros de 0 a 100.
+        </mat-hint>
+      </mat-form-field>
+          <!-- </mat-form-field> -->
         </mat-cell>
       </ng-container>
 
@@ -268,11 +435,31 @@
         <mat-header-cell *matHeaderCellDef> Marca </mat-header-cell>
         <mat-cell *matCellDef="let element; let i = index">
           <mat-form-field class="matFieldTable" appearance="outline">
-            <input matInput type="text" [(ngModel)]="dataVh.marcallantadelizq" *ngIf="i === 0" />
-            <input matInput type="text" [(ngModel)]="dataVh.marcallantadelder" *ngIf="i === 1" />
-            <input matInput type="text" [(ngModel)]="dataVh.marcallantatraizq" *ngIf="i === 2" />
-            <input matInput type="text" [(ngModel)]="dataVh.marcallantatrader" *ngIf="i === 3" />
-            <input matInput type="text" [(ngModel)]="dataVh.marcarep" *ngIf="i === 4" />
+            <input matInput type="text"
+            [(ngModel)]="dataVh.marcallantadelizq" *ngIf="i === 0"
+                 [pattern]="expresiones.numbersTextSpaces"
+                    name="marcallantadelizq" #marcallantadelizq="ngModel"
+                    id="marcallantadelizq"/>
+            <input matInput type="text"
+            [(ngModel)]="dataVh.marcallantadelder" *ngIf="i === 1"
+                 [pattern]="expresiones.numbersTextSpaces"
+                    name="marcallantadelder" #marcallantadelder="ngModel"
+                    id="marcallantadelder"/>
+            <input matInput type="text"
+            [(ngModel)]="dataVh.marcallantatraizq" *ngIf="i === 2"
+                 [pattern]="expresiones.numbersTextSpaces"
+                    name="marcallantatraizq" #marcallantatraizq="ngModel"
+                    id="marcallantatraizq"/>
+            <input matInput type="text"
+            [(ngModel)]="dataVh.marcallantatrader" *ngIf="i === 3"
+                 [pattern]="expresiones.numbersTextSpaces"
+                    name="marcallantatrader" #marcallantatrader="ngModel"
+                    id="marcallantatrader"/>
+            <input matInput type="text"
+            [(ngModel)]="dataVh.marcarep" *ngIf="i === 4"
+                 [pattern]="expresiones.numbersTextSpaces"
+                    name="marcarep" #marcarep="ngModel"
+                    id="marcarep"/>
           </mat-form-field>
         </mat-cell>
       </ng-container>
@@ -299,13 +486,73 @@
       <ng-container matColumnDef="rin">
         <mat-header-cell *matHeaderCellDef> Rin </mat-header-cell>
         <mat-cell *matCellDef="let element; let i = index">
-          <mat-form-field class="matFieldTable" appearance="outline">
-            <input matInput type="text" [(ngModel)]="dataVh.porcrindelizq" *ngIf="i === 0" />
-            <input matInput type="text" [(ngModel)]="dataVh.porcrindelder" *ngIf="i === 1" />
-            <input matInput type="text" [(ngModel)]="dataVh.porcrintraizq" *ngIf="i === 2" />
-            <input matInput type="text" [(ngModel)]="dataVh.porcrintrader" *ngIf="i === 3" />
-            <input matInput type="text" [(ngModel)]="dataVh.porcrinrep" *ngIf="i === 4" />
-          </mat-form-field>
+          <mat-form-field class="matFieldTable example-full-width" appearance="outline" *ngIf="i === 0">
+            <input matInput  [(ngModel)]="dataVh.porcrindelizq"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+              [pattern]="expresiones.numsPorc"   type="number"
+
+               name="porcrindelizq" #porcrindelizq="ngModel"
+                    id="porcrindelizq"/>
+                    <mat-icon matSuffix>percent</mat-icon>
+                     <mat-hint  class="message-error"
+         [class.invalid]="porcrindelizq.invalid" *ngIf="porcrindelizq.errors?.['pattern']">
+           En este campo solo están permitidos los números enteros de 0 a 100.
+        </mat-hint>
+
+                  </mat-form-field>
+                  <mat-form-field class="matFieldTable example-full-width" appearance="outline" *ngIf="i === 1">
+            <input matInput  [(ngModel)]="dataVh.porcrindelder"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+              [pattern]="expresiones.numsPorc"   type="number"
+
+               name="porcrindelder" #porcrindelder="ngModel"
+                    id="porcrindelder"/>
+                    <mat-icon matSuffix>percent</mat-icon>
+                     <mat-hint  class="message-error"
+         [class.invalid]="porcrindelder.invalid" *ngIf="porcrindelder.errors?.['pattern']">
+           En este campo solo están permitidos los números enteros de 0 a 100.
+        </mat-hint>
+                    </mat-form-field>
+      <mat-form-field class="matFieldTable example-full-width" appearance="outline" *ngIf="i === 2">
+            <input matInput  [(ngModel)]="dataVh.porcrintraizq"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+              [pattern]="expresiones.numsPorc"   type="number"
+
+               name="porcrintraizq" #porcrintraizq="ngModel"
+                    id="porcrintraizq"/>
+                    <mat-icon matSuffix>percent</mat-icon>
+                     <mat-hint  class="message-error"
+         [class.invalid]="porcrintraizq.invalid" *ngIf="porcrintraizq.errors?.['pattern']">
+           En este campo solo están permitidos los números enteros de 0 a 100.
+        </mat-hint>
+                    </mat-form-field>
+      <mat-form-field class="matFieldTable example-full-width" appearance="outline" *ngIf="i === 3">
+            <input matInput  [(ngModel)]="dataVh.porcrintrader"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+              [pattern]="expresiones.numsPorc"   type="number"
+
+               name="porcrintrader" #porcrintrader="ngModel"
+                    id="porcrintrader"/>
+                    <mat-icon matSuffix>percent</mat-icon>
+                     <mat-hint  class="message-error"
+         [class.invalid]="porcrintrader.invalid" *ngIf="porcrintrader.errors?.['pattern']">
+           En este campo solo están permitidos los números enteros de 0 a 100.
+        </mat-hint>
+                    </mat-form-field>
+      <mat-form-field class="matFieldTable example-full-width" appearance="outline" *ngIf="i === 4">
+            <input matInput  [(ngModel)]="dataVh.porcrinrep"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+              [pattern]="expresiones.numsPorc"   type="number"
+
+               name="porcrinrep" #porcrinrep="ngModel"
+                    id="porcrinrep"/>
+                    <mat-icon matSuffix>percent</mat-icon>
+                     <mat-hint  class="message-error"
+         [class.invalid]="porcrinrep.invalid" *ngIf="porcrinrep.errors?.['pattern']">
+           En este campo solo están permitidos los números enteros de 0 a 100.
+        </mat-hint>
+                    </mat-form-field>
+
         </mat-cell>
       </ng-container>
 
@@ -644,7 +891,7 @@
   </mat-grid-tile>
     <mat-grid-tile>  <mat-form-field class="example-full-width" appearance="outline">
       <mat-label>Observaciones</mat-label>
-      <textarea matInput placeholder="Observaciones" [(ngModel)]="dataVh.notasdocumentos"></textarea>
+      <textarea matInput placeholder="Observaciones" [(ngModel)]="dataVh.notasdoc"></textarea>
     </mat-form-field> </mat-grid-tile>
   </mat-grid-list>
 
@@ -656,7 +903,15 @@
     <mat-grid-tile>
       <mat-form-field appearance="outline">
         <mat-label>Nombre de quien deja el vehículo</mat-label>
-        <input class="" matInput placeholder="Nombre de quien deja el vehículo" [(ngModel)]="dataVh.clienteentrega" />
+        <input class="" matInput placeholder="Nombre de quien deja el vehículo"
+        [(ngModel)]="dataVh.clientrega"
+        name="clientrega" #clientrega="ngModel"
+        id="clientrega"
+        />
+        <mat-hint  class="message-error"
+        [class.invalid]="clientrega.invalid" *ngIf="clientrega.errors?.['pattern']">
+          Campo Nombre Entrega no válido, solo se permiten números y letras.
+       </mat-hint>
 
 
       </mat-form-field>
@@ -704,7 +959,15 @@
       <mat-grid-tile>
         <mat-form-field appearance="outline">
           <mat-label>Nombre de quien recibe el vehículo</mat-label>
-          <input class="" matInput placeholder="Nombre de quien recibe el vehículo" [(ngModel)]="dataVh.clienterecibe"/>
+          <input class="" matInput placeholder="Nombre de quien recibe el vehículo"
+          [(ngModel)]="dataVh.clirecibe"
+          name="clirecibe" #clirecibe="ngModel"
+          id="clirecibe"
+          />
+          <mat-hint  class="message-error"
+          [class.invalid]="clirecibe.invalid" *ngIf="clirecibe.errors?.['pattern']">
+            Campo Nombre Recibe no válido, solo se permiten números y letras.
+         </mat-hint>
 
 
         </mat-form-field>

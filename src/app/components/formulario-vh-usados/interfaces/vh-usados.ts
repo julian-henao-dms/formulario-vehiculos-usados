@@ -1,7 +1,7 @@
 export interface VhUsados {
   id : number;
   idlote : number;
-  usu : string;
+  usu : number;
   consignacion : string;
   retoma : string;
   otros : string;
@@ -19,8 +19,8 @@ export interface VhUsados {
   transmision : number | boolean | null;
   color : string;
   cilindraje : string;
-  traccion : string;
-  cojineria : string;
+  traccion : number | boolean | null;
+  cojineria : number | boolean | null;
   linea : string;
   porcllantadelizq : number;
   porcllantadelder : number;
@@ -65,10 +65,10 @@ export interface VhUsados {
   nivelcombustible : string
   incbateria : number | boolean | null;
   incradio : number | boolean | null;
-  notasdocumentos : string;
-  clienteentrega : string;
+  notasdoc : string;
+  clientrega : string;
   fechaentrada : Date;
-  clienterecibe : string;
+  clirecibe : string;
   fechasalida : Date;
 
 }

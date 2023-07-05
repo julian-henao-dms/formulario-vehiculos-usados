@@ -4,6 +4,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms'
 import { VhUsados } from './interfaces/vh-usados';
 import { ApiService } from 'src/app/services/api.service';
 import { MessagesService } from 'src/app/services/messages.service';
+import { SessionStorageService } from 'src/app/services/session-storage.service';
 
 @Component({
   selector: 'app-formulario-vh-usados',
@@ -14,8 +15,8 @@ export class FormularioVhUsadosComponent implements OnInit {
 
   public dataVh: VhUsados = {
     id: 0,
-    idlote : 0,
-    usu : '',
+    idlote : 121015,
+    usu : 2,
     consignacion : '',
     retoma : '',
     otros : '',
@@ -24,17 +25,17 @@ export class FormularioVhUsadosComponent implements OnInit {
     asesor : '',
     sala : '',
     fecha : new Date,
-    hora : ''+':00', //?
+    hora : '',
     marca : '',
     referencia : '',
     modelo : '',
-    combustible : 0,
+    combustible : null,
     km : '',
     transmision : null,
     color : '',
     cilindraje : '',
-    traccion : '',
-    cojineria : '',
+    traccion : null,
+    cojineria : null,
     linea : '',
     porcllantadelizq : 0,
     porcllantadelder : 0,
@@ -79,10 +80,10 @@ export class FormularioVhUsadosComponent implements OnInit {
     nivelcombustible : '',
     incbateria : null,
     incradio : null,
-    notasdocumentos : '',
-    clienteentrega : '',
+    notasdoc : '',
+    clientrega : '',
     fechaentrada : new Date,
-    clienterecibe : '',
+    clirecibe : '',
     fechasalida : new Date
   }
 
@@ -171,10 +172,27 @@ export class FormularioVhUsadosComponent implements OnInit {
     sm: 1,
     xs: 1
   };
+
+  public expresiones = {
+    numbersText: /^[A-Za-z0-9_-]{1,20}$/,
+    numbersTextSpaces: /^[a-zA-Z0-9\s]*$/,
+    usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
+    textSpacesAccent: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+    password: /^.{4,12}$/, // 4 a 12 digitos.
+    // correo: /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
+    correo: /^\w+([.-_+]?\w+)@\w+([.-]?\w+)(\.\w{2,10})+$/,
+    // correo: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+    nums: /^\d{7,15}$/, // 7 a 14 numeros.
+    numsPorc: /^(100|[1-9]?[0-9])$/, // 7 a 14 numeros.
+
+    celular: /^\d{10,15}$/, // 7 a 14 numeros.
+  };
+
   constructor(
     private breakpointObserver: BreakpointObserver,
     private readonly apiService: ApiService,
-    private readonly messageService: MessagesService
+    private readonly messageService: MessagesService,
+    private _storaged: SessionStorageService,
     ) {
         this.breakpointObserver.observe([
         Breakpoints.XSmall,
@@ -259,9 +277,12 @@ export class FormularioVhUsadosComponent implements OnInit {
 
   }
 
-  public sendForm() {
+  public async sendForm(): Promise<void> {
     this.dataVh.combustible = this.dataVh.combustible === 1 ? true : false;
-    this.dataVh.hora =     this.dataVh.hora +':00';
+    this.dataVh.transmision = this.dataVh.transmision === 1 ? true : false;
+    this.dataVh.traccion = this.dataVh.traccion === 1 ? true : false;
+    this.dataVh.cojineria = this.dataVh.cojineria === 1 ? true : false;
+    this.dataVh.hora =     this.dataVh.hora+":00";
     this.dataVh.matricula = this.dataVh.matricula === 1 ? true : false;
     this.dataVh.soat = this.dataVh.soat === 1 ? true : false;
     this.dataVh.rtm = this.dataVh.rtm === 1 ? true : false;
@@ -282,7 +303,34 @@ export class FormularioVhUsadosComponent implements OnInit {
     this.dataVh.linea = this.dataVh.linea.toString() ;
 
     console.log(this.dataVh);
+    this._storaged.set('dataVh', this.dataVh);
+
+    const res = await this.updateInformation(
+      '/VehiculosUsados/GuardarVehiculo',
+      this.dataVh
+    );
+    console.log(res);
+
+    if (res == false) {
+      this.messageService.error(
+        'Error',
+        'No se pudo almacenar la información del vehículo'
+      );
+      this.messageService.info(
+        'Atención',
+        'Revise que todos los campos requeridos o contacte con un administrador '
+      );
+    } else {
+      this.messageService.success(
+        'Vehículo Guardado',
+        'Los datos del vehículo se han enviado correctamente'
+      );
+
+
+    }
+
   }
+
 
   private async getAnyInformation(service: string): Promise<any> {
     return new Promise((resolve, reject) => {
