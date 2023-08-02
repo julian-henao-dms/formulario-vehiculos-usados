@@ -1,6 +1,5 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms'
 import { VhUsados } from './interfaces/vh-usados';
 import { ApiService } from 'src/app/services/api.service';
 import { MessagesService } from 'src/app/services/messages.service';
@@ -99,8 +98,6 @@ export class FormularioVhUsadosComponent implements OnInit {
     { id: '5', label: 'Nivel 4' },
   ];
 
-
-
   image = '/assets/meter/meter1.svg';
 
   displayedColumns: string[] = ['label', 'vida_llanta', 'marca'];
@@ -111,8 +108,7 @@ export class FormularioVhUsadosComponent implements OnInit {
   {label: 'Tras. Der. %', trasDer: '', marca_td: ''},
   {label: 'Repuesto', repuesto: '', marca_rep: ''}];
 
-  // Variables para almacenar los valores de los inputs
-  // inputValues: any[] = Array.from({ length: 5 }, () => ({vida_llanta: '', marca: ''}));
+
   inputValuesLlantas: any[] = [
     {delIzq: '', marca_di: ''},
     {delDer: '', marca_dd: ''},
@@ -286,28 +282,20 @@ export class FormularioVhUsadosComponent implements OnInit {
       const loading = await this.messageService.waitInfo(
         'Estamos cargando la información... Por favor espere.'
       );
-      // this.route.queryParamMap.subscribe(async params =>{
-      //   this.id = params.get('id');
-      //   this.id_lote = params.get('id_lote');
 
       this.route.paramMap.subscribe(async params => {
         this.id = params.get('id');
         this.id_lote = params.get('id_lote');
 
-        // if(this.id !== null && this.id_lote !== null){ // Comprueba que ambos parámetros no sean nulos
-        // console.log('Los parametros son:', this.id , this.id_lote);
         if (this.id === null || this.id_lote === null) {
-          // Si uno o ambos parámetros no están presentes, redirige a la página de inicio.
+
           this.router.navigate(['/']);
           return;
         }else{
-        // const vehiculoExistente = await this.getAnyInformation(
-        //   '/VehiculosUsados?id='+ this.id + '&idLote=' + this.id_lote );
-
         const vehiculoExistente = await this.getAnyInformation(
           '/VehiculosUsados/' + this.id + '/' + this.id_lote
         );
-          console.log("Get VhUsados", vehiculoExistente);
+
 
       if(vehiculoExistente && vehiculoExistente.length > 0){
       this.dataVh.id = vehiculoExistente[0].id;
@@ -325,13 +313,13 @@ export class FormularioVhUsadosComponent implements OnInit {
       this.dataVh.marca = vehiculoExistente[0].marca;
       this.dataVh.referencia = vehiculoExistente[0].referencia;
       this.dataVh.modelo = vehiculoExistente[0].modelo;
-      this.dataVh.combustible = vehiculoExistente[0].combustible === 'Gasolina' ? 0 : 1; //??
+      this.dataVh.combustible = vehiculoExistente[0].combustible === 'Gasolina' ? 0 : 1;
       this.dataVh.km = vehiculoExistente[0].kilometraje;
-      this.dataVh.transmision = vehiculoExistente[0].transmision === 'Automatica' ? 0 : 1; //??
+      this.dataVh.transmision = vehiculoExistente[0].transmision === 'Automatica' ? 0 : 1;
       this.dataVh.color = vehiculoExistente[0].color;
       this.dataVh.cilindraje = vehiculoExistente[0].cilindraje;
-      this.dataVh.traccion = vehiculoExistente[0].traccion === '4x2' ? 0 : 1; //??
-      this.dataVh.cojineria = vehiculoExistente[0].cojineria === 'Tela' ? 0 : 1; //??
+      this.dataVh.traccion = vehiculoExistente[0].traccion === '4x2' ? 0 : 1;
+      this.dataVh.cojineria = vehiculoExistente[0].cojineria === 'Tela' ? 0 : 1;
       this.dataVh.linea = this.mapLineaApiToRadioGroupValue(vehiculoExistente[0].linea);
       this.dataVh.porcllantadelizq = vehiculoExistente[0].porce_llanta_del_izq;
       this.dataVh.porcllantadelder = vehiculoExistente[0].porce_llanta_del_der;
@@ -358,25 +346,25 @@ export class FormularioVhUsadosComponent implements OnInit {
       this.dataVh.porcrinrep = vehiculoExistente[0].porce_rin_rep;
       this.dataVh.taparinrep = vehiculoExistente[0].tapa_rin_rep;
       this.dataVh.marcarinrep = vehiculoExistente[0].marca_rin_rep;
-      this.dataVh.matricula = vehiculoExistente[0].matricula === 'No' ? 0 : 1; // ??
-      this.dataVh.soat = vehiculoExistente[0].soat === 'No' ? 0 : 1; //??
-      this.dataVh.rtm = vehiculoExistente[0].rtm === 'No' ? 0 : 1; //??
+      this.dataVh.matricula = vehiculoExistente[0].matricula === 'No' ? 0 : 1;
+      this.dataVh.soat = vehiculoExistente[0].soat === 'No' ? 0 : 1;
+      this.dataVh.rtm = vehiculoExistente[0].rtm === 'No' ? 0 : 1;
       this.dataVh.notas = vehiculoExistente[0].notas;
-      this.dataVh.incllave = vehiculoExistente[0].inc_llave === 'No' ? 0 : 1; //??
-      this.dataVh.increpllave = vehiculoExistente[0].inc_rep_llave === 'No' ? 0 : 1; //??
-      this.dataVh.incmanual = vehiculoExistente[0].inc_manual === 'No' ? 0 : 1; //??
-      this.dataVh.incencendedor = vehiculoExistente[0].inc_encendedor === 'No' ? 0 : 1; //??
-      this.dataVh.inccruceta = vehiculoExistente[0].inc_cruceta === 'No' ? 0 : 1; //??
-      this.dataVh.incllave_tipo1 = vehiculoExistente[0].inc_llave_tipo1 === 'No' ? 0 : 1; //??
-      this.dataVh.incllave_tipo2 = vehiculoExistente[0].inc_llave_tipo2 === 'No' ? 0 : 1; //??
-      this.dataVh.incgato = vehiculoExistente[0].inc_gato === 'No' ? 0 : 1; //??
-      this.dataVh.inckith = vehiculoExistente[0].inc_kith === 'No' ? 0 : 1; //??
-      this.dataVh.incantena = vehiculoExistente[0].inc_antena === 'No' ? 0 : 1; //??
-      this.dataVh.incmaletero = vehiculoExistente[0].inc_maletero === 'No' ? 0 : 1; //??
-      this.dataVh.nivelcombustible = vehiculoExistente[0].nivel_combustible //??
+      this.dataVh.incllave = vehiculoExistente[0].inc_llave === 'No' ? 0 : 1;
+      this.dataVh.increpllave = vehiculoExistente[0].inc_rep_llave === 'No' ? 0 : 1;
+      this.dataVh.incmanual = vehiculoExistente[0].inc_manual === 'No' ? 0 : 1;
+      this.dataVh.incencendedor = vehiculoExistente[0].inc_encendedor === 'No' ? 0 : 1;
+      this.dataVh.inccruceta = vehiculoExistente[0].inc_cruceta === 'No' ? 0 : 1;
+      this.dataVh.incllave_tipo1 = vehiculoExistente[0].inc_llave_tipo1 === 'No' ? 0 : 1;
+      this.dataVh.incllave_tipo2 = vehiculoExistente[0].inc_llave_tipo2 === 'No' ? 0 : 1;
+      this.dataVh.incgato = vehiculoExistente[0].inc_gato === 'No' ? 0 : 1;
+      this.dataVh.inckith = vehiculoExistente[0].inc_kith === 'No' ? 0 : 1;
+      this.dataVh.incantena = vehiculoExistente[0].inc_antena === 'No' ? 0 : 1;
+      this.dataVh.incmaletero = vehiculoExistente[0].inc_maletero === 'No' ? 0 : 1;
+      this.dataVh.nivelcombustible = vehiculoExistente[0].nivel_combustible
       this.onSelectedImage(this.dataVh.nivelcombustible);
-      this.dataVh.incbateria = vehiculoExistente[0].inc_bateria === 'No' ? 0 : 1; //??
-      this.dataVh.incradio = vehiculoExistente[0].inc_radio === 'No' ? 0 : 1; //??
+      this.dataVh.incbateria = vehiculoExistente[0].inc_bateria === 'No' ? 0 : 1;
+      this.dataVh.incradio = vehiculoExistente[0].inc_radio === 'No' ? 0 : 1;
       this.dataVh.notasdoc = vehiculoExistente[0].notas_documentos;
       this.dataVh.clientrega = vehiculoExistente[0].cliente_entrega
       this.dataVh.fechaentrada = this.isValidDate(vehiculoExistente[0].fecha_entrada) ? vehiculoExistente[0].fecha_entrada : new Date()
@@ -433,8 +421,6 @@ export class FormularioVhUsadosComponent implements OnInit {
       '/VehiculosUsados/guardarvehiculo',
       this.dataVh
     );
-    console.log(res);
-
     if (res == false) {
       this.messageService.error(
         'Error',
@@ -449,7 +435,6 @@ export class FormularioVhUsadosComponent implements OnInit {
         'Vehículo Guardado',
         'Los datos del vehículo se han enviado correctamente'
       );
-
       this.router.navigate(['/']);
     }
 
@@ -502,11 +487,10 @@ mapLineaApiToRadioGroupValue(apiValue: string): any {
 loginApi() {
   this.authService.login('dms', 'DMS2023@dv@nc3').subscribe(
     data => {
-      console.log(data.token);
       this._storaged.set('token', data.token);
     },
     error => {
-      console.error('Error:', error);  // En caso de error, lo imprimes en la consola
+      console.error('Error:', error);
     }
   );
 }
