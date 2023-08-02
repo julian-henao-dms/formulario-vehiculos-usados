@@ -5,7 +5,7 @@ import { VhUsados } from './interfaces/vh-usados';
 import { ApiService } from 'src/app/services/api.service';
 import { MessagesService } from 'src/app/services/messages.service';
 import { SessionStorageService } from 'src/app/services/session-storage.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -196,9 +196,11 @@ export class FormularioVhUsadosComponent implements OnInit {
     private breakpointObserver: BreakpointObserver,
     private readonly apiService: ApiService,
     private readonly route: ActivatedRoute,
+    private router: Router,
     private readonly messageService: MessagesService,
     private _storaged: SessionStorageService,
     private authService: AuthService,
+
     ) {
         this.breakpointObserver.observe([
         Breakpoints.XSmall,
@@ -279,27 +281,38 @@ export class FormularioVhUsadosComponent implements OnInit {
 
      }
 
-  async ngOnInit():  Promise<void> {
+     async ngOnInit():  Promise<void> {
+      this.loginApi();
+      const loading = await this.messageService.waitInfo(
+        'Estamos cargando la información... Por favor espere.'
+      );
+      // this.route.queryParamMap.subscribe(async params =>{
+      //   this.id = params.get('id');
+      //   this.id_lote = params.get('id_lote');
 
-    this.loginApi();
+      this.route.paramMap.subscribe(async params => {
+        this.id = params.get('id');
+        this.id_lote = params.get('id_lote');
 
-    const loading = await this.messageService.waitInfo(
-      'Estamos cargando la información... Por favor espere.'
-    );
-    this.route.queryParamMap.subscribe(async params =>{
-      this.id = params.get('id');
-      this.id_lote = params.get('id_lote');
-      if(this.id !== null && this.id_lote !== null){ // Comprueba que ambos parámetros no sean nulos
-      console.log('Los parametros son:', this.id , this.id_lote);
+        // if(this.id !== null && this.id_lote !== null){ // Comprueba que ambos parámetros no sean nulos
+        // console.log('Los parametros son:', this.id , this.id_lote);
+        if (this.id === null || this.id_lote === null) {
+          // Si uno o ambos parámetros no están presentes, redirige a la página de inicio.
+          this.router.navigate(['/']);
+          return;
+        }else{
+        // const vehiculoExistente = await this.getAnyInformation(
+        //   '/VehiculosUsados?id='+ this.id + '&idLote=' + this.id_lote );
 
-      const vehiculoExistente = await this.getAnyInformation(
-        '/VehiculosUsados?id='+ this.id + '&idLote=' + this.id_lote );
-        console.log("Get VhUsados", vehiculoExistente);
+        const vehiculoExistente = await this.getAnyInformation(
+          '/VehiculosUsados/' + this.id + '/' + this.id_lote
+        );
+          console.log("Get VhUsados", vehiculoExistente);
 
       if(vehiculoExistente && vehiculoExistente.length > 0){
       this.dataVh.id = vehiculoExistente[0].id;
       this.dataVh.idlote = vehiculoExistente[0].id_cot_item_lote;
-      this.dataVh.usu = vehiculoExistente[0] // ??
+      this.dataVh.usu = this.dataVh.usu;
       this.dataVh.consignacion = vehiculoExistente[0].consignacion;
       this.dataVh.retoma = vehiculoExistente[0].retoma;
       this.dataVh.otros = vehiculoExistente[0].otros;
@@ -307,7 +320,7 @@ export class FormularioVhUsadosComponent implements OnInit {
       this.dataVh.interno = vehiculoExistente[0].interno;
       this.dataVh.asesor = vehiculoExistente[0].asesor;
       this.dataVh.sala = vehiculoExistente[0].sala;
-      this.dataVh.fecha = vehiculoExistente[0].fecha_formulario;
+      this.dataVh.fecha = vehiculoExistente[0].fecha_formulario ? vehiculoExistente[0].fecha_formulario : new Date;
       this.dataVh.hora = vehiculoExistente[0].hora_formulario;
       this.dataVh.marca = vehiculoExistente[0].marca;
       this.dataVh.referencia = vehiculoExistente[0].referencia;
@@ -366,9 +379,9 @@ export class FormularioVhUsadosComponent implements OnInit {
       this.dataVh.incradio = vehiculoExistente[0].inc_radio === 'No' ? 0 : 1; //??
       this.dataVh.notasdoc = vehiculoExistente[0].notas_documentos;
       this.dataVh.clientrega = vehiculoExistente[0].cliente_entrega
-      this.dataVh.fechaentrada = vehiculoExistente[0].fecha_entrada
+      this.dataVh.fechaentrada = this.isValidDate(vehiculoExistente[0].fecha_entrada) ? vehiculoExistente[0].fecha_entrada : new Date()
       this.dataVh.clirecibe = vehiculoExistente[0].cliente_recibe
-      this.dataVh.fechasalida = vehiculoExistente[0].fecha_salida
+      this.dataVh.fechasalida = this.isValidDate(vehiculoExistente[0].fecha_salida) ? vehiculoExistente[0].fecha_salida : new Date();
     }else {
       setTimeout(() => {
         this.messageService.info(
@@ -377,12 +390,15 @@ export class FormularioVhUsadosComponent implements OnInit {
         );
 
       }, 1000);
+      this.router.navigate(['/']);
+
     }
     }
 
     })
     loading.close();
   }
+
 
   public async sendForm(): Promise<void> {
     this.dataVh.combustible = this.dataVh.combustible === 1 ? true : false;
@@ -411,8 +427,7 @@ export class FormularioVhUsadosComponent implements OnInit {
     this.dataVh.nivelcombustible = this.dataVh.nivelcombustible.toString() ;
     this.dataVh.linea = this.dataVh.linea.toString() ;
 
-    console.log(this.dataVh);
-    this._storaged.set('dataVh', this.dataVh);
+
 
     const res = await this.updateInformation(
       '/VehiculosUsados/guardarvehiculo',
@@ -435,7 +450,7 @@ export class FormularioVhUsadosComponent implements OnInit {
         'Los datos del vehículo se han enviado correctamente'
       );
 
-
+      this.router.navigate(['/']);
     }
 
   }
@@ -470,7 +485,8 @@ export class FormularioVhUsadosComponent implements OnInit {
   }
 
 onSelectedImage(data: string): void{
-  this.image = `/assets/meter/meter${parseInt(data)}.svg`;
+  this.image = parseInt(data) > 0 ? `/assets/meter/meter${parseInt(data)}.svg` : '/assets/meter/meter1.svg';
+
 }
 
 mapLineaApiToRadioGroupValue(apiValue: string): any {
@@ -493,6 +509,12 @@ loginApi() {
       console.error('Error:', error);  // En caso de error, lo imprimes en la consola
     }
   );
+}
+
+isValidDate(date: string): boolean {
+  const parsedDate = new Date(date);
+  const invalidDate = new Date('0001-01-01T00:00:00');
+  return !(parsedDate.getTime() === invalidDate.getTime());
 }
 
 }

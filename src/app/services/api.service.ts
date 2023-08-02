@@ -19,32 +19,40 @@ export class ApiService {
     this.apiUrlAlt = environment.apiUrlAlt;
    }
 
-  //  public authenticate(username: string, password: string): Observable<any> {
-  //   const url = this.apiUrl + '/token';
-  //   const credentials = { username, password };
-  //   const Headers = new HttpHeaders().set('Content-Type', 'application/json');
-  //   return this.http.post(url, credentials, { headers: Headers });
-  // }
+   public authenticate(username: string, password: string): Observable<any> {
+    const url = this.apiUrl + '/token';
+    const credentials = { username, password };
+    const Headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this.http.post(url, credentials, { headers: Headers });
+  }
 
-  // public setToken(token: string): void {
-  //   localStorage.setItem('accessToken', token);
-  // }
+  public setToken(token: string): void {
+    localStorage.setItem('accessToken', token);
+  }
 
-  // public getToken(): string | null {
-  //   return localStorage.getItem('accessToken');
-  // }
+  public getToken(): string | null {
+    return localStorage.getItem('accessToken');
+  }
 
    public  getInformacion(servicio: string): Observable<any> {
     const url = this.apiUrl + servicio;
+    const token = this._storaged.get('token');
+    const headers = new HttpHeaders()
+    .set('Content-Type', 'application/json')
+    .set('Authorization', 'Bearer ' + token);  // Add 'Bearer ' before the token
 
-    return this.http.get(url);
+      return this.http.get(url, { headers: headers });
+    // const headers = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', token);
+
+    // return this.http.get(url, { headers: headers });
+    // // return this.http.get(url);
   }
 
   public saveInformacion(servicio: string, document: any): Observable<any> {
     const url = this.apiUrl + servicio;
     const params = JSON.stringify(document);
     const token = this._storaged.get('token');
-    const Headers = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', this.token);
+    const Headers = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', 'Bearer ' + token);
     return this.http.post(url, params, { headers: Headers });
   }
 
@@ -58,7 +66,7 @@ export class ApiService {
     const url = this.apiUrl + servicio;
     const params = JSON.stringify(document);
     const token = this._storaged.get('token');
-    const Headers = new HttpHeaders().set('Content-Type', 'application/json');
+    const Headers = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', 'Bearer ' + token);;
     return this.http.post(url, params, { headers: Headers });
   }
 }

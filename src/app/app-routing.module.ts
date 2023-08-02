@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormularioVhUsadosComponent } from './components/formulario-vh-usados/formulario-vh-usados.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'formulario.vehiculo-usado', pathMatch: 'full' },
-  { path: 'formulario.vehiculo-usado', component: FormularioVhUsadosComponent },
+  { path: '', redirectTo: 'home-vehiculo-usado', pathMatch: 'full' },
+  { path: 'home-vehiculo-usado', component: HomeComponent },
+  { path: 'formulario.vehiculo-usado/:id/:id_lote', component: FormularioVhUsadosComponent },
+
 ];
 
 @NgModule({
