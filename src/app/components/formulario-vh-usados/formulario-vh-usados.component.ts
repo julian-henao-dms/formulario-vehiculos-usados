@@ -13,13 +13,13 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./formulario-vh-usados.component.scss']
 })
 export class FormularioVhUsadosComponent implements OnInit {
-  public id: string | null = '';
+  public id_usu: string | null = '';
   public id_lote: string | null = '';
 
   public dataVh: VhUsados = {
     id: 0,
-    idlote : 121015,
-    usu : 2,
+    idlote : 0,
+    usu : 0,
     consignacion : '',
     retoma : '',
     otros : '',
@@ -279,116 +279,29 @@ export class FormularioVhUsadosComponent implements OnInit {
 
      async ngOnInit():  Promise<void> {
       this.loginApi();
-      const loading = await this.messageService.waitInfo(
-        'Estamos cargando la información... Por favor espere.'
-      );
+
 
       this.route.paramMap.subscribe(async params => {
-        this.id = params.get('id');
+        this.id_usu = params.get('id_usu');
         this.id_lote = params.get('id_lote');
 
-        if (this.id === null || this.id_lote === null) {
+        this._storaged.set('idUsu', this.id_usu);
+        this._storaged.set('idLote', this.id_lote);
 
-          this.router.navigate(['/']);
+        if (this.id_usu === null || this.id_lote === null) {
+
+          this.router.navigate(['/home-vehiculo-usado']);
           return;
-        }else{
-        const vehiculoExistente = await this.getAnyInformation(
-          '/VehiculosUsados/' + this.id + '/' + this.id_lote
-        );
+        }
 
-
-      if(vehiculoExistente && vehiculoExistente.length > 0){
-      this.dataVh.id = vehiculoExistente[0].id;
-      this.dataVh.idlote = vehiculoExistente[0].id_cot_item_lote;
-      this.dataVh.usu = this.dataVh.usu;
-      this.dataVh.consignacion = vehiculoExistente[0].consignacion;
-      this.dataVh.retoma = vehiculoExistente[0].retoma;
-      this.dataVh.otros = vehiculoExistente[0].otros;
-      this.dataVh.placa = vehiculoExistente[0].placa;
-      this.dataVh.interno = vehiculoExistente[0].interno;
-      this.dataVh.asesor = vehiculoExistente[0].asesor;
-      this.dataVh.sala = vehiculoExistente[0].sala;
-      this.dataVh.fecha = vehiculoExistente[0].fecha_formulario ? vehiculoExistente[0].fecha_formulario : new Date;
-      this.dataVh.hora = vehiculoExistente[0].hora_formulario;
-      this.dataVh.marca = vehiculoExistente[0].marca;
-      this.dataVh.referencia = vehiculoExistente[0].referencia;
-      this.dataVh.modelo = vehiculoExistente[0].modelo;
-      this.dataVh.combustible = vehiculoExistente[0].combustible === 'Gasolina' ? 0 : 1;
-      this.dataVh.km = vehiculoExistente[0].kilometraje;
-      this.dataVh.transmision = vehiculoExistente[0].transmision === 'Automatica' ? 0 : 1;
-      this.dataVh.color = vehiculoExistente[0].color;
-      this.dataVh.cilindraje = vehiculoExistente[0].cilindraje;
-      this.dataVh.traccion = vehiculoExistente[0].traccion === '4x2' ? 0 : 1;
-      this.dataVh.cojineria = vehiculoExistente[0].cojineria === 'Tela' ? 0 : 1;
-      this.dataVh.linea = this.mapLineaApiToRadioGroupValue(vehiculoExistente[0].linea);
-      this.dataVh.porcllantadelizq = vehiculoExistente[0].porce_llanta_del_izq;
-      this.dataVh.porcllantadelder = vehiculoExistente[0].porce_llanta_del_der;
-      this.dataVh.porcllantatraizq = vehiculoExistente[0].porce_llanta_tra_izq;
-      this.dataVh.porcllantatrader = vehiculoExistente[0].porce_llanta_tra_der;
-      this.dataVh.marcallantadelizq = vehiculoExistente[0].marca_llanta_del_izq;
-      this.dataVh.marcallantadelder = vehiculoExistente[0].marca_llanta_del_der;
-      this.dataVh.marcallantatraizq = vehiculoExistente[0].marca_llanta_tra_izq;
-      this.dataVh.marcallantatrader = vehiculoExistente[0].marca_llanta_tra_der;
-      this.dataVh.porcrep = vehiculoExistente[0].porce_rep;
-      this.dataVh.marcarep = vehiculoExistente[0].marca_rep;
-      this.dataVh.porcrindelizq = vehiculoExistente[0].porce_rin_del_izq;
-      this.dataVh.porcrindelder = vehiculoExistente[0].porce_rin_del_der;
-      this.dataVh.porcrintraizq = vehiculoExistente[0].porce_rin_tra_izq;
-      this.dataVh.porcrintrader = vehiculoExistente[0].porce_rin_tra_der;
-      this.dataVh.taparindelizq = vehiculoExistente[0].tapa_rin_del_izq;
-      this.dataVh.taparindelder = vehiculoExistente[0].tapa_rin_del_der;
-      this.dataVh.taparintraizq = vehiculoExistente[0].tapa_rin_tra_izq;
-      this.dataVh.taparintrader = vehiculoExistente[0].tapa_rin_tra_der;
-      this.dataVh.marcarindelizq = vehiculoExistente[0].marca_rin_del_izq;
-      this.dataVh.marcarindelder = vehiculoExistente[0].marca_rin_del_der;
-      this.dataVh.marcarintraizq = vehiculoExistente[0].marca_llanta_tra_izq;
-      this.dataVh.marcarintrader = vehiculoExistente[0].marca_llanta_tra_der;
-      this.dataVh.porcrinrep = vehiculoExistente[0].porce_rin_rep;
-      this.dataVh.taparinrep = vehiculoExistente[0].tapa_rin_rep;
-      this.dataVh.marcarinrep = vehiculoExistente[0].marca_rin_rep;
-      this.dataVh.matricula = vehiculoExistente[0].matricula === 'No' ? 0 : 1;
-      this.dataVh.soat = vehiculoExistente[0].soat === 'No' ? 0 : 1;
-      this.dataVh.rtm = vehiculoExistente[0].rtm === 'No' ? 0 : 1;
-      this.dataVh.notas = vehiculoExistente[0].notas;
-      this.dataVh.incllave = vehiculoExistente[0].inc_llave === 'No' ? 0 : 1;
-      this.dataVh.increpllave = vehiculoExistente[0].inc_rep_llave === 'No' ? 0 : 1;
-      this.dataVh.incmanual = vehiculoExistente[0].inc_manual === 'No' ? 0 : 1;
-      this.dataVh.incencendedor = vehiculoExistente[0].inc_encendedor === 'No' ? 0 : 1;
-      this.dataVh.inccruceta = vehiculoExistente[0].inc_cruceta === 'No' ? 0 : 1;
-      this.dataVh.incllave_tipo1 = vehiculoExistente[0].inc_llave_tipo1 === 'No' ? 0 : 1;
-      this.dataVh.incllave_tipo2 = vehiculoExistente[0].inc_llave_tipo2 === 'No' ? 0 : 1;
-      this.dataVh.incgato = vehiculoExistente[0].inc_gato === 'No' ? 0 : 1;
-      this.dataVh.inckith = vehiculoExistente[0].inc_kith === 'No' ? 0 : 1;
-      this.dataVh.incantena = vehiculoExistente[0].inc_antena === 'No' ? 0 : 1;
-      this.dataVh.incmaletero = vehiculoExistente[0].inc_maletero === 'No' ? 0 : 1;
-      this.dataVh.nivelcombustible = vehiculoExistente[0].nivel_combustible
-      this.onSelectedImage(this.dataVh.nivelcombustible);
-      this.dataVh.incbateria = vehiculoExistente[0].inc_bateria === 'No' ? 0 : 1;
-      this.dataVh.incradio = vehiculoExistente[0].inc_radio === 'No' ? 0 : 1;
-      this.dataVh.notasdoc = vehiculoExistente[0].notas_documentos;
-      this.dataVh.clientrega = vehiculoExistente[0].cliente_entrega
-      this.dataVh.fechaentrada = this.isValidDate(vehiculoExistente[0].fecha_entrada) ? vehiculoExistente[0].fecha_entrada : new Date()
-      this.dataVh.clirecibe = vehiculoExistente[0].cliente_recibe
-      this.dataVh.fechasalida = this.isValidDate(vehiculoExistente[0].fecha_salida) ? vehiculoExistente[0].fecha_salida : new Date();
-    }else {
-      setTimeout(() => {
-        this.messageService.info(
-          'Atención...',
-          'Los números de id e idLote seleccionado no contienen información previamente diligenciada'
-        );
-
-      }, 1000);
-      this.router.navigate(['/']);
-
-    }
-    }
 
     })
-    loading.close();
   }
 
 
   public async sendForm(): Promise<void> {
+    this.dataVh.usu = parseInt(this._storaged.get('idUsu'));
+    this.dataVh.idlote = parseInt(this._storaged.get('idLote'));
     this.dataVh.combustible = this.dataVh.combustible === 1 ? true : false;
     this.dataVh.transmision = this.dataVh.transmision === 1 ? true : false;
     this.dataVh.traccion = this.dataVh.traccion === 1 ? true : false;
@@ -435,6 +348,7 @@ export class FormularioVhUsadosComponent implements OnInit {
         'Vehículo Guardado',
         'Los datos del vehículo se han enviado correctamente'
       );
+      this._storaged.clear();
       this.router.navigate(['/']);
     }
 

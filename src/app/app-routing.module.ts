@@ -6,7 +6,8 @@ import { HomeComponent } from './components/home/home.component';
 const routes: Routes = [
   { path: '', redirectTo: 'home-vehiculo-usado', pathMatch: 'full' },
   { path: 'home-vehiculo-usado', component: HomeComponent },
-  { path: 'formulario.vehiculo-usado/:id/:id_lote', component: FormularioVhUsadosComponent },
+  { path: 'formulario.vehiculo-usado', redirectTo: 'home-vehiculo-usado' },
+  { path: 'formulario.vehiculo-usado/:id_usu/:id_lote', component: FormularioVhUsadosComponent },
 
 ];
 
