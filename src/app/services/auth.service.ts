@@ -2,17 +2,34 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { SessionStorageService } from './session-storage.service';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private tokenUrl = environment.apiUrl + '/Token';  // Cambia esto a la URL de tu API
+  private apiUrl: string;
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private _storaged: SessionStorageService
+    ) {
+    this.apiUrl = environment.apiUrl;
+  }
 
-  login(username: string, password: string): Observable<any> {
-    return this.http.post<any>(this.tokenUrl, { usuario: username, password: password });
+  public authenticate(encryptedCredentials: any): Observable<any> {
+    const url = `${this.apiUrl}/token`;
+    const body = {   encryptedCredentials: encryptedCredentials };
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this.http.post(url, body, { headers });
+  }
+
+  public setToken(token: string): void {
+    this._storaged.set('headlightSpecString', token); // Utilizando SessionStorageService para setear el token
+  }
+
+  public getToken(): string | null {
+    return this._storaged.get('headlightSpecString'); // Utilizando SessionStorageService para obtener el token
   }
 }

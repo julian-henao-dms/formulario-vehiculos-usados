@@ -6,6 +6,8 @@ export const environment = {
   production: false,
   apiUrl: 'http://localhost:5000/api',
   apiUrlAlt: 'https://localhost:44339/api',
+  // apiUsername: 'dms',
+  // apiPassword: 'DMS2023@dv@nc3',
 };
 
 /*

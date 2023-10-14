@@ -15,6 +15,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class FormularioVhUsadosComponent implements OnInit {
   public id_usu: string | null = '';
   public id_lote: string | null = '';
+  public headlightSpecString: string | null = '';
 
   public dataVh: VhUsados = {
     id: 0,
@@ -278,15 +279,32 @@ export class FormularioVhUsadosComponent implements OnInit {
      }
 
      async ngOnInit():  Promise<void> {
-      this.loginApi();
 
-
-      this.route.paramMap.subscribe(async params => {
+       this.route.paramMap.subscribe(async params => {
         this.id_usu = params.get('id_usu');
         this.id_lote = params.get('id_lote');
-
+        this.headlightSpecString = params.get('headlightSpecString');
+        console.log(this.headlightSpecString);
         this._storaged.set('idUsu', this.id_usu);
         this._storaged.set('idLote', this.id_lote);
+
+
+        if(this.headlightSpecString){
+          console.log('3',this.headlightSpecString);
+
+          this.authService.authenticate(this.headlightSpecString).subscribe({
+            next: data => {
+              console.log("Autentica?");
+              this.authService.setToken(data.token)
+            },
+            error: error => {
+              console.error('Error:', error);
+            }
+          });
+
+        }
+        // this._storaged.set('headlightSpecString', this.headlightSpecString);
+
 
         if (this.id_usu === null || this.id_lote === null) {
 
@@ -295,7 +313,12 @@ export class FormularioVhUsadosComponent implements OnInit {
         }
 
 
-    })
+
+
+    });
+
+
+
   }
 
 
@@ -398,16 +421,7 @@ mapLineaApiToRadioGroupValue(apiValue: string): any {
   return '0';
 }
 
-loginApi() {
-  this.authService.login('dms', 'DMS2023@dv@nc3').subscribe(
-    data => {
-      this._storaged.set('token', data.token);
-    },
-    error => {
-      console.error('Error:', error);
-    }
-  );
-}
+
 
 isValidDate(date: string): boolean {
   const parsedDate = new Date(date);
