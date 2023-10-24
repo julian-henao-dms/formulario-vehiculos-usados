@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: 'home-vehiculo-usado', component: HomeComponent },
   { path: 'formulario-vehiculo-usado', redirectTo: 'home-vehiculo-usado' },
   { path: 'formulario-vehiculo-usado/:id_usu/:id_lote/:headlightSpecString', component: FormularioVhUsadosComponent },
-
+  { path: '**', redirectTo: 'home-vehiculo-usado'}
 ];
 
 @NgModule({

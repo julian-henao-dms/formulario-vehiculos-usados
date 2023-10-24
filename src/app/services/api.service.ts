@@ -10,7 +10,7 @@ import { AuthService } from './auth.service';
 })
 export class ApiService {
 
-  private apiUrl: string;
+  private readonly apiUrl: string;
 
 
   constructor(
@@ -22,24 +22,6 @@ export class ApiService {
 
    }
 
-
-//    public authenticate(encryptedCredentials: any): Observable<any> {
-//     const url = this.apiUrl + '/token';
-//     const body = {
-//         encryptedCredentials: encryptedCredentials
-//     };
-//     console.log('Body to be sent:', body);
-//     const Headers = new HttpHeaders().set('Content-Type', 'application/json');
-//     return this.http.post(url, body, { headers: Headers });
-// }
-
-  // public setToken(token: string): void {
-  //   localStorage.setItem('accessToken', token);
-  // }
-
-  // public getToken(): string | null {
-  //   return localStorage.getItem('accessToken');
-  // }
 
    public  getInformacion(servicio: string): Observable<any> {
     const url = this.apiUrl + servicio;

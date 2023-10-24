@@ -284,17 +284,17 @@ export class FormularioVhUsadosComponent implements OnInit {
         this.id_usu = params.get('id_usu');
         this.id_lote = params.get('id_lote');
         this.headlightSpecString = params.get('headlightSpecString');
-        console.log(this.headlightSpecString);
+
         this._storaged.set('idUsu', this.id_usu);
         this._storaged.set('idLote', this.id_lote);
 
 
         if(this.headlightSpecString){
-          console.log('3',this.headlightSpecString);
+
 
           this.authService.authenticate(this.headlightSpecString).subscribe({
             next: data => {
-              console.log("Autentica?");
+
               this.authService.setToken(data.token)
             },
             error: error => {
@@ -303,7 +303,7 @@ export class FormularioVhUsadosComponent implements OnInit {
           });
 
         }
-        // this._storaged.set('headlightSpecString', this.headlightSpecString);
+
 
 
         if (this.id_usu === null || this.id_lote === null) {
