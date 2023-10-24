@@ -299,6 +299,7 @@ export class FormularioVhUsadosComponent implements OnInit {
             },
             error: error => {
               console.error('Error:', error);
+              this.router.navigate(['/home-vehiculo-usado']);
             }
           });
 
